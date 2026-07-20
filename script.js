@@ -1,6 +1,5 @@
 /* ═══════════════════════════════════════════════════
-   SOLOTEC — script.js
-   ترتيب: i18n Dictionary → Language Toggle → Scroll Reveal
+   SoloTec — script.js
    ═══════════════════════════════════════════════════ */
 
 
@@ -143,7 +142,7 @@ if (langToggle) {
   });
 }
 
-/* اللغة المحفوظة، أو لغة المتصفح كافتراضي */
+/* لغة محفوظة، أو لغة المتصفح كافتراضي */
 (function initLang() {
   let saved = null;
   try { saved = localStorage.getItem('solotec-lang'); } catch (e) { /* ignore */ }
