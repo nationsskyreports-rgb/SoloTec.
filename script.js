@@ -56,6 +56,13 @@ const i18n = {
     ct_wa:      'Message on WhatsApp',
     ct_email:   'Email me',
 
+    term_lines: [
+      'deploying nos-cc-portal... ✓ live',
+      'shipping HRIS payroll module... ✓ done',
+      '6 systems in production, used daily',
+      'no agencies, no handoffs — just me'
+    ],
+
     footer: '© 2026 SoloTec. Built by one, used by many.'
   },
 
@@ -151,7 +158,65 @@ if (langToggle) {
 })();
 
 
-/* ─── 3. SCROLL REVEAL ─── */
+/* ─── 4. HERO TERMINAL TYPEWRITER ─── */
+(function initTerminal() {
+  const el = document.getElementById('terminalText');
+  if (!el) return;
+
+  const lines = i18n.en.term_lines || [];
+  if (!lines.length) return;
+
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) {
+    el.textContent = lines[0];
+    return;
+  }
+
+  const TYPE_MS = 45;
+  const DELETE_MS = 22;
+  const HOLD_MS = 1600;
+  const GAP_MS = 350;
+
+  let lineIndex = 0;
+  let timer = null;
+
+  function typeLine() {
+    const full = lines[lineIndex];
+    let i = 0;
+    el.textContent = '';
+
+    (function typeChar() {
+      i++;
+      el.textContent = full.slice(0, i);
+      if (i < full.length) {
+        timer = setTimeout(typeChar, TYPE_MS);
+      } else {
+        timer = setTimeout(deleteLine, HOLD_MS);
+      }
+    })();
+  }
+
+  function deleteLine() {
+    const full = lines[lineIndex];
+    let i = full.length;
+
+    (function deleteChar() {
+      i--;
+      el.textContent = full.slice(0, i);
+      if (i > 0) {
+        timer = setTimeout(deleteChar, DELETE_MS);
+      } else {
+        lineIndex = (lineIndex + 1) % lines.length;
+        timer = setTimeout(typeLine, GAP_MS);
+      }
+    })();
+  }
+
+  typeLine();
+})();
+
+
+/* ─── 5. SCROLL REVEAL ─── */
 (function initReveal() {
   const items = document.querySelectorAll('.reveal');
   if (!('IntersectionObserver' in window)) {
