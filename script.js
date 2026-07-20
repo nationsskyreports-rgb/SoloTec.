@@ -1,6 +1,6 @@
-/* Kareem Rashad / SoloTec — language toggle only.
-   No scroll reveals, no fake terminal, no rotating decorations.
-   The site should feel like a static page, because it is. */
+/* Kareem Rashad / SoloTec — language toggle + ambient background.
+   No scroll reveals, no fake terminal.
+   الخلفية المتحركة في آخر الملف (قسم: خلفية متحركة). */
 
 const i18n = {
   en: {
@@ -15,7 +15,6 @@ const i18n = {
     hero_meta_studio: 'Running SoloTec on the side',
     cta_wa:           'WhatsApp me',
     cta_work:         'Look at the work',
-    portrait_note:    'PHOTO COMING SOON',
 
     stat1: 'tables in the HRIS I built',
     stat2: 'platforms shipped for one company',
@@ -90,7 +89,6 @@ const i18n = {
     hero_meta_studio: 'وبأدير SoloTec على الجنب',
     cta_wa:           'كلمني على واتساب',
     cta_work:         'شوف الأعمال',
-    portrait_note:    'الصورة قريباً',
 
     stat1: 'جدول في نظام الـ HR اللي بنيته',
     stat2: 'منصات سلمتها لشركة واحدة',
@@ -181,4 +179,171 @@ if (langToggle) {
   try { saved = localStorage.getItem('solotec-lang'); } catch (e) { /* ignore */ }
   const browserAr = (navigator.language || '').toLowerCase().startsWith('ar');
   applyLang(saved || (browserAr ? 'ar' : 'en'));
+})();
+
+
+/* ═══════════════════════════════════════════════════
+   خلفية متحركة — "constellation" هادية فيها suspense
+   - نقط بتسبح ببطء وخيوط بتظهر وتختفي بينها
+   - شعاع مسح (scan) بطيء بيعدي كل شوية يدي إحساس ترقّب
+   - بتحترم prefers-reduced-motion وبتقف لما التاب يتخفي
+   ═══════════════════════════════════════════════════ */
+(function bgAnimation() {
+  const canvas = document.getElementById('bgCanvas');
+  if (!canvas) return;
+
+  // لو المستخدم مفعّل تقليل الحركة → خلفية ثابتة بس بنفس الطابع
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  const DPR = Math.min(window.devicePixelRatio || 1, 2);
+  let W = 0, H = 0;
+  let particles = [];
+  let rafId = null;
+  let scanX = -0.25;          // موضع شعاع المسح (نسبة من العرض)
+  let lastT = 0;
+
+  // ── إعدادات سهلة التعديل ──
+  const CFG = {
+    density:   14000,          // بكسل مربع لكل نقطة (أكبر = نقط أقل)
+    maxCount:  90,             // حد أقصى للنقط (موبايل)
+    speed:     0.012,          // سرعة السباحة (بطيئة = suspense)
+    linkDist:  150,            // مسافة ظهور الخيوط بين النقط
+    dotAlpha:  0.55,
+    lineAlpha: 0.10,
+    scanSpeed: 0.000018,       // سرعة شعاع المسح (بطيء جداً)
+    teal: '0, 182, 155',
+    blue: '14, 165, 233'
+  };
+
+  function resize() {
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width  = W * DPR;
+    canvas.height = H * DPR;
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    buildParticles();
+    if (reduceMotion) drawFrame(0, true); // رسمة واحدة ثابتة
+  }
+
+  function buildParticles() {
+    const count = Math.min(Math.round((W * H) / CFG.density), CFG.maxCount);
+    particles = [];
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: (Math.random() - 0.5) * CFG.speed,
+        vy: (Math.random() - 0.5) * CFG.speed,
+        r: 1 + Math.random() * 1.6,
+        // كل نقطة ليها "نبض" خاص بيها
+        pulse: Math.random() * Math.PI * 2,
+        tealMix: Math.random()  // 0 = أزرق، 1 = تركواز
+      });
+    }
+  }
+
+  function drawFrame(t, staticFrame) {
+    ctx.clearRect(0, 0, W, H);
+
+    // ── توهج خافت في الأركان يدي عمق ──
+    const g1 = ctx.createRadialGradient(W * 0.85, H * 0.1, 0, W * 0.85, H * 0.1, H * 0.9);
+    g1.addColorStop(0, 'rgba(' + CFG.blue + ', 0.05)');
+    g1.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = g1;
+    ctx.fillRect(0, 0, W, H);
+
+    const g2 = ctx.createRadialGradient(W * 0.05, H * 0.9, 0, W * 0.05, H * 0.9, H * 0.8);
+    g2.addColorStop(0, 'rgba(' + CFG.teal + ', 0.04)');
+    g2.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = g2;
+    ctx.fillRect(0, 0, W, H);
+
+    // ── شعاع المسح البطيء (يتخطى في وضع reduced motion) ──
+    if (!staticFrame) {
+      const sx = scanX * W;
+      const scanG = ctx.createLinearGradient(sx - 180, 0, sx + 180, 0);
+      scanG.addColorStop(0,   'rgba(' + CFG.teal + ', 0)');
+      scanG.addColorStop(0.5, 'rgba(' + CFG.teal + ', 0.045)');
+      scanG.addColorStop(1,   'rgba(' + CFG.blue + ', 0)');
+      ctx.fillStyle = scanG;
+      ctx.fillRect(sx - 180, 0, 360, H);
+    }
+
+    // ── الخيوط بين النقط القريبة ──
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const a = particles[i], b = particles[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < CFG.linkDist) {
+          const alpha = CFG.lineAlpha * (1 - dist / CFG.linkDist);
+          ctx.strokeStyle = 'rgba(' + CFG.teal + ', ' + alpha.toFixed(3) + ')';
+          ctx.lineWidth = 0.6;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // ── النقط نفسها (بنبض هادي) ──
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      const pulse = staticFrame ? 0.7 : (0.5 + 0.5 * Math.sin(t * 0.0012 + p.pulse));
+      const alpha = CFG.dotAlpha * (0.35 + 0.65 * pulse);
+      const color = p.tealMix > 0.5 ? CFG.teal : CFG.blue;
+      ctx.fillStyle = 'rgba(' + color + ', ' + alpha.toFixed(3) + ')';
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  function step(t) {
+    const dt = lastT ? Math.min(t - lastT, 50) : 16;
+    lastT = t;
+
+    // حركة سباحة بطيئة + التفاف من الأطراف
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      p.x += p.vx * dt;
+      p.y += p.vy * dt;
+      if (p.x < -10) p.x = W + 10; else if (p.x > W + 10) p.x = -10;
+      if (p.y < -10) p.y = H + 10; else if (p.y > H + 10) p.y = -10;
+    }
+
+    // شعاع المسح يعدي من الشمال لليمين ويرجع من بره الشاشة
+    scanX += CFG.scanSpeed * dt * W * 0.01;
+    if (scanX > 1.25) scanX = -0.25;
+
+    drawFrame(t, false);
+    rafId = requestAnimationFrame(step);
+  }
+
+  function start() {
+    if (reduceMotion || rafId) return;
+    lastT = 0;
+    rafId = requestAnimationFrame(step);
+  }
+  function stop() {
+    if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+  }
+
+  // وقف الأنيميشن لما التاب يتخفي (توفير بطارية)
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) stop(); else start();
+  });
+
+  let resizeTimer = null;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(resize, 150);
+  });
+
+  resize();
+  start();
 })();
