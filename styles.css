@@ -1,0 +1,348 @@
+/* ═══════════════════════════════════════════════════
+   SOLOTEC — styles.css
+   ترتيب: Variables → Base → Nav → Hero → Sections
+          → Cards → Why → Contact → Footer
+          → Animations → Responsive
+   ═══════════════════════════════════════════════════ */
+
+
+/* ─── 1. CSS VARIABLES ─── */
+:root {
+  --teal:        #00B69B;
+  --blue:        #0EA5E9;
+  --grad:        linear-gradient(135deg, #00B69B, #0EA5E9);
+  --bg:          #0B1220;
+  --surface:     #111A2C;
+  --text:        #F1F5F9;
+  --muted:       #8CA0B8;
+  --border:      rgba(255, 255, 255, 0.08);
+  --radius:      14px;
+  --font-en-display: 'Space Grotesk', sans-serif;
+  --font-en-body:    'Inter', sans-serif;
+  --font-ar:         'IBM Plex Sans Arabic', sans-serif;
+  --font-display: var(--font-en-display);
+  --font-body:    var(--font-en-body);
+}
+
+/* لما اللغة عربي: نبدّل الخطوط */
+html[lang="ar"] {
+  --font-display: var(--font-ar);
+  --font-body:    var(--font-ar);
+}
+
+
+/* ─── 2. BASE ─── */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.2; }
+
+h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); margin-bottom: 40px; max-width: 640px; }
+
+a { color: inherit; text-decoration: none; }
+
+.grad-text {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* النقطة = Solo = الواحد */
+.brand-dot {
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--grad);
+  margin-inline-start: 3px;
+  vertical-align: super;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 14px;
+}
+
+html[lang="ar"] .eyebrow { letter-spacing: 0.5px; }
+
+
+/* ─── 3. NAV ─── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px clamp(20px, 5vw, 60px);
+  background: rgba(11, 18, 32, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo { display: flex; align-items: center; gap: 10px; }
+
+.logo-hex { width: 34px; height: 34px; }
+
+.logo-s, .hero-s {
+  font-family: var(--font-en-display);
+  font-weight: 700;
+  fill: url(#lg);
+}
+.logo-s { font-size: 26px; }
+
+.nav-brand {
+  font-family: var(--font-en-display);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.3px;
+}
+
+.nav-actions { display: flex; align-items: center; gap: 22px; }
+
+.nav-link {
+  font-size: 14px;
+  color: var(--muted);
+  transition: color 0.25s;
+}
+.nav-link:hover { color: var(--text); }
+
+.lang-toggle {
+  font-family: var(--font-ar);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  width: 38px; height: 34px;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.lang-toggle:hover { border-color: var(--teal); color: var(--teal); }
+
+
+/* ─── 4. HERO ─── */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(30px, 6vw, 90px);
+  min-height: calc(100vh - 63px);
+  padding: 40px clamp(20px, 5vw, 60px);
+  flex-wrap: wrap;
+}
+
+.hero-visual {
+  position: relative;
+  width: clamp(200px, 26vw, 300px);
+  aspect-ratio: 1;
+  flex-shrink: 0;
+}
+
+.hero-hex { width: 100%; height: 100%; }
+
+.hex-line {
+  stroke-dasharray: 520;
+  stroke-dashoffset: 520;
+  animation: drawHex 1.4s ease forwards;
+}
+
+.hero-s { font-size: 84px; opacity: 0; animation: fadeS 0.8s ease 1s forwards; }
+
+/* النقطة اللي بتدور حوالين السداسي */
+.orbit {
+  position: absolute;
+  inset: -8%;
+  animation: spin 14s linear infinite;
+}
+
+.orbit-dot {
+  position: absolute;
+  top: 0; left: 50%;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--grad);
+  box-shadow: 0 0 14px rgba(14, 165, 233, 0.8);
+  transform: translateX(-50%);
+}
+
+.hero-copy { max-width: 560px; }
+
+.hero h1 {
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  margin-bottom: 18px;
+}
+
+.hero-sub {
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  margin-bottom: 32px;
+}
+
+.hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+
+
+/* ─── 5. BUTTONS ─── */
+.btn {
+  display: inline-block;
+  padding: 13px 26px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.25s;
+}
+
+.btn-primary {
+  background: var(--grad);
+  color: #fff;
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(0, 182, 155, 0.35);
+}
+.btn-primary:active { transform: scale(0.98); }
+
+.btn-ghost {
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
+
+
+/* ─── 6. SECTIONS & CARDS ─── */
+.section { padding: 90px clamp(20px, 5vw, 60px); max-width: 1200px; margin: 0 auto; }
+
+.grid { display: grid; gap: 18px; }
+
+.services-grid, .work-grid {
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 26px;
+  transition: transform 0.25s, border-color 0.25s;
+}
+.card:hover { transform: translateY(-3px); border-color: rgba(0, 182, 155, 0.4); }
+
+.card h3 { font-size: 1.1rem; margin-bottom: 10px; }
+.card p { color: var(--muted); font-size: 0.95rem; }
+
+.work-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+
+.work-tags span {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  color: var(--teal);
+}
+
+
+/* ─── 7. WHY ─── */
+.why-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+.why-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.why-dot {
+  flex-shrink: 0;
+  width: 10px; height: 10px;
+  margin-top: 9px;
+  border-radius: 50%;
+  background: var(--grad);
+}
+
+.why-item p { color: var(--muted); }
+
+
+/* ─── 8. CONTACT ─── */
+.contact { text-align: center; }
+.contact h2 { margin-inline: auto; }
+.contact-sub { color: var(--muted); margin: -20px 0 32px; }
+.contact .hero-cta { justify-content: center; }
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  transition: all 0.25s;
+}
+.socials svg { width: 21px; height: 21px; fill: var(--muted); transition: fill 0.25s; }
+.socials a:hover { border-color: var(--teal); transform: translateY(-2px); }
+.socials a:hover svg { fill: var(--teal); }
+
+
+/* ─── 9. FOOTER ─── */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 26px clamp(20px, 5vw, 60px);
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 13px;
+}
+.footer > span:first-child { font-family: var(--font-en-display); font-weight: 700; color: var(--text); }
+
+
+/* ─── 10. ANIMATIONS ─── */
+@keyframes drawHex { to { stroke-dashoffset: 0; } }
+@keyframes fadeS   { to { opacity: 1; } }
+@keyframes spin    { to { transform: rotate(360deg); } }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hex-line { animation: none; stroke-dashoffset: 0; }
+  .hero-s { animation: none; opacity: 1; }
+  .orbit { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+
+/* ─── 11. RESPONSIVE ─── */
+@media (max-width: 640px) {
+  .hero { flex-direction: column; text-align: center; padding-top: 60px; }
+  .hero-cta { justify-content: center; }
+  .nav-link { display: none; }
+  .section { padding: 60px 20px; }
+}
