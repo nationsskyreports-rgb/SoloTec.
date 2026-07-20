@@ -5,13 +5,13 @@
 
 /* ─── 1. TOKENS ─── */
 :root {
-  --teal:    #00B69B;
-  --blue:    #0EA5E9;
-  --grad:    linear-gradient(135deg, #00B69B, #0EA5E9);
-  --bg:      #0B1220;
-  --surface: #111A2C;
-  --text:    #F1F5F9;
-  --muted:   #8CA0B8;
+  --teal:    #3AF6C7;
+  --blue:    #1FA1FF;
+  --grad:    linear-gradient(135deg, #3AF6C7, #1FA1FF);
+  --bg:      #1B1E28;
+  --surface: #232735;
+  --text:    #F3F6FA;
+  --muted:   #8B96A8;
   --border:  rgba(255, 255, 255, 0.08);
   --radius:  14px;
 
@@ -131,15 +131,61 @@ html[lang="ar"] .eyebrow { letter-spacing: 0.5px; }
 }
 
 .hero-visual {
-  width: clamp(220px, 28vw, 320px);
+  position: relative;
+  width: clamp(260px, 30vw, 380px);
+  aspect-ratio: 1 / 1;
   flex-shrink: 0;
-  animation: floatY 6s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-rings {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.hero-rings .ring {
+  fill: none;
+  stroke: url(#ringGrad);
+  transform-origin: 200px 200px;
+}
+
+.ring-1 {
+  stroke-width: 1.4;
+  opacity: 0.35;
+  animation: spinSlow 34s linear infinite;
+}
+.ring-2 {
+  stroke-width: 1.6;
+  opacity: 0.55;
+  animation: spinSlow 26s linear infinite reverse;
+}
+.ring-3 {
+  stroke-width: 2;
+  opacity: 0.8;
+  animation: pulseRing 4.5s ease-in-out infinite;
+}
+
+.hero-glow {
+  position: absolute;
+  width: 55%;
+  height: 55%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(58, 246, 199, 0.35), rgba(31, 161, 255, 0.12) 55%, transparent 75%);
+  filter: blur(6px);
+  animation: pulseGlow 4.5s ease-in-out infinite;
 }
 
 .hero-logo {
-  width: 100%;
+  position: relative;
+  width: 46%;
   height: auto;
-  filter: drop-shadow(0 10px 40px rgba(0, 182, 155, 0.25));
+  animation: floatY 6s ease-in-out infinite;
+  filter: drop-shadow(0 10px 30px rgba(58, 246, 199, 0.35));
 }
 
 .hero-copy { max-width: 560px; }
@@ -178,7 +224,7 @@ html[lang="ar"] .eyebrow { letter-spacing: 0.5px; }
 }
 .btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 22px rgba(0, 182, 155, 0.35);
+  box-shadow: 0 6px 22px rgba(58, 246, 199, 0.35);
 }
 .btn-primary:active { transform: scale(0.98); }
 
@@ -215,7 +261,7 @@ html[lang="ar"] .eyebrow { letter-spacing: 0.5px; }
 }
 .card:hover {
   transform: translateY(-3px);
-  border-color: rgba(0, 182, 155, 0.4);
+  border-color: rgba(58, 246, 199, 0.4);
 }
 
 .card h3 {
@@ -330,6 +376,21 @@ html[lang="ar"] .eyebrow { letter-spacing: 0.5px; }
   50%      { transform: translateY(-10px); }
 }
 
+@keyframes spinSlow {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulseRing {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50%      { opacity: 1;   transform: scale(1.03); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%      { opacity: 1;   transform: scale(1.08); }
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(18px);
@@ -342,7 +403,9 @@ html[lang="ar"] .eyebrow { letter-spacing: 0.5px; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .hero-visual { animation: none; }
+  .hero-logo,
+  .ring-1, .ring-2, .ring-3,
+  .hero-glow { animation: none; }
   .reveal {
     opacity: 1;
     transform: none;

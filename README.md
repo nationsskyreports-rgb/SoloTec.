@@ -11,11 +11,14 @@ solotec-site/
 ├── script.js           # تبديل اللغة + الحركات
 ├── README.md           # هذا الملف
 └── assets/
-    ├── logo-mark.png       # اللوجو mark فقط (512×512) — للـ hero
-    ├── logo-wordmark.png   # اللوجو + كلمة SoloTec (1200×360) — للـ nav والـ footer
-    ├── favicon.png         # 64×64 — أيقونة المتصفح
+    ├── logo-mark.png        # اللوجو mark فقط، شفاف (512×512) — للـ hero
+    ├── logo-wordmark.png    # اللوجو + كلمة SoloTec، شفاف (1024×432) — للـ nav والـ footer
+    ├── favicon.ico          # أيقونة المتصفح (multi-size)
+    ├── favicon-light.png    # 32×32 — أيقونة بديلة PNG
+    ├── icon-192.png         # 192×192 — لو حبيت تضيف manifest.json / PWA
+    ├── icon-512.png         # 512×512 — لو حبيت تضيف manifest.json / PWA
     ├── apple-touch-icon.png # 180×180 — أيقونة iOS
-    └── og-image.png        # 1200×630 — كارت مشاركة السوشيال
+    └── og-image.png         # 1200×630 — كارت مشاركة السوشيال
 ```
 
 ## Update before publishing
@@ -62,17 +65,17 @@ python3 -m http.server 8000
 
 ## Regenerating assets
 
-كل صور المجلد `assets/` أُنتجت من سكريبت Python واحد. لو حبيت تعدّل اللوجو (لون، حجم، شكل السداسي)، عدّل السكريبت وشغّله عشان تحدّث كل الأصول مرة واحدة بدل ما تعدّل كل صورة على حدة.
+اللوجو (logo-mark, logo-wordmark, الأيقونات) ملفات جاهزة اتحطت زي ما هي — لو حبيت تعدّلها ابعتها لأداة تصميم اللوجو تاني. أما `og-image.png` فمولّد بسكريبت بايثون بسيط (`gen_og.py`) بياخد `logo-mark.png` الشفاف ويحط حواليه حلقات سداسي وخلفية العلامة التجارية — لو غيّرت الألوان في اللوجو، شغّل السكريبت تاني عشان يتحدّث.
 
 ## Brand tokens
 
 ```
-Teal:    #00B69B
-Blue:    #0EA5E9
-BG:      #0B1220
-Surface: #111A2C
-Text:    #F1F5F9
-Muted:   #8CA0B8
+Teal:    #3AF6C7
+Blue:    #1FA1FF
+BG:      #1B1E28
+Surface: #232735
+Text:    #F3F6FA
+Muted:   #8B96A8
 ```
 
-الـ gradient الأساسي: `linear-gradient(135deg, #00B69B, #0EA5E9)` — يظهر في الأزرار الأساسية، حرف S داخل السداسي، وحرف c في كلمة SoloTec.
+الـ gradient الأساسي: `linear-gradient(135deg, #3AF6C7, #1FA1FF)` — يظهر في الأزرار الأساسية، حرف S داخل السداسي، وحرف c في كلمة SoloTec، وحلقات السداسي المتحركة خلف اللوجو في الـ hero.
