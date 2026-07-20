@@ -1,144 +1,171 @@
-/* ═══════════════════════════════════════════════════
-   SoloTec — script.js
-   ═══════════════════════════════════════════════════ */
+/* Kareem Rashad / SoloTec — language toggle only.
+   No scroll reveals, no fake terminal, no rotating decorations.
+   The site should feel like a static page, because it is. */
 
-
-/* ─── 1. I18N DICTIONARY ─── */
 const i18n = {
   en: {
-    nav_work:     'Work',
-    nav_contact:  'Contact',
-    hero_eyebrow: 'SOLOTEC · INDEPENDENT SOFTWARE STUDIO',
-    hero_title:   'One developer.<br>Complete systems.',
-    hero_sub:     'From CRM portals to WhatsApp platforms to App Store apps — designed, built, and shipped end to end.',
-    cta_start:    'Start a project',
-    cta_work:     'See the work',
+    nav_work:    'Work',
+    nav_about:   'About',
+    nav_contact: 'Contact',
 
-    svc_eyebrow:  'WHAT I BUILD',
-    svc_title:    'Systems your team uses every day',
-    svc1_t: 'Web portals & dashboards',
-    svc1_d: 'Admin panels, agent portals, and reporting dashboards with real-time data.',
-    svc2_t: 'CRM & internal tools',
-    svc2_d: 'Custom CRMs, campaign managers, and workflow tools shaped around how you actually work.',
-    svc3_t: 'WhatsApp business platforms',
-    svc3_d: 'Full contact-center platforms on the WhatsApp API: inbox, routing, campaigns, reports.',
-    svc4_t: 'Mobile & PWA apps',
-    svc4_d: 'Installable web apps and native iOS builds — shipped to the App Store.',
-    svc5_t: 'HR & payroll systems',
-    svc5_d: 'Attendance, leave, and payroll engines built for Egyptian tax and insurance rules.',
-    svc6_t: 'Databases & automation',
-    svc6_d: 'Solid data models, reporting pipelines, and automations that remove manual work.',
+    hero_eyebrow:     'SOFTWARE DEVELOPER · CAIRO',
+    hero_name:        'Kareem Rashad',
+    hero_lede:        "I build the internal software teams actually open every morning — WhatsApp platforms, HR systems, portals, and mobile apps. Mostly alone, mostly for people I work with.",
+    hero_meta_role:   'Customer experience & workforce lead at Nations of Sky',
+    hero_meta_studio: 'Running SoloTec on the side',
+    cta_wa:           'WhatsApp me',
+    cta_work:         'Look at the work',
+    portrait_note:    'PHOTO COMING SOON',
+
+    stat1: 'tables in the HRIS I built',
+    stat2: 'platforms shipped for one company',
+    stat3: 'app live on the App Store',
+    stat4: 'self-taught, shipped from a browser',
 
     work_eyebrow: 'SELECTED WORK',
-    work_title:   'Real systems, in production, used daily',
-    w1_t: 'WhatsApp Contact Center',
-    w1_d: 'A complete support platform: shared inbox, smart conversation routing, agent permissions, campaigns, and five live reporting views — replacing a paid third-party tool.',
-    w2_t: 'HRIS with Egyptian payroll',
-    w2_d: 'A 26-table HR system: GPS attendance, leave requests, and a payroll engine handling progressive tax and social insurance.',
-    w3_t: 'Studio booking app — on the App Store',
-    w3_d: 'Class scheduling, bookings, payments, and push notifications for a yoga studio — from first line of code to App Store release.',
-    w4_t: 'Workforce admin portal',
-    w4_d: 'Schedule audits, automatic deviation detection against call-center logs, bulk actions, and Excel exports for operations teams.',
-    w5_t: 'Campaigns portal',
-    w5_d: 'Outbound campaign management with database-driven call scripts, duplicate handling, and live agent notifications.',
-    w6_t: 'Medical network directory',
-    w6_d: 'Provider data extracted from Arabic PDFs into a searchable, filterable map-based directory.',
+    work_title:   'Three that I keep coming back to',
 
-    why_eyebrow: 'WHY SOLOTEC',
-    why_title:   'You talk to the person who writes the code',
-    why1: 'One point of contact from idea to launch — no handoffs, nothing lost in translation.',
-    why2: 'Every project above is a real production system used daily by working teams.',
-    why3: 'Fast, lean delivery — working software in days, not months of meetings.',
+    c1_year:  '2025 · in production',
+    c1_title: 'NOS Contact Center — a WhatsApp platform',
+    c1_lede:  'Our team was paying for a third-party WhatsApp tool with limits I kept hitting. I replaced it with a platform we own — inbox, routing, campaigns, and reporting.',
+    c1_fact1_k: 'Stack',
+    c1_fact1_v: 'Next.js · Supabase · WhatsApp Business API · Vercel',
+    c1_fact2_k: 'Built',
+    c1_fact2_v: 'Shared inbox with race-safe routing, agent permissions matrix, five live reporting views, campaign manager',
+    c1_fact3_k: 'Notable',
+    c1_fact3_v: 'Three-layer notifications (sound + toast + browser), all permissions flow through one Terms & Roles matrix',
+
+    c2_year:  '2024–2025 · in production',
+    c2_title: 'Tawreedat HRIS — Egyptian payroll from scratch',
+    c2_lede:  "A full HR platform for a client who was still on spreadsheets. Twenty-six tables, a payroll engine that understands Egyptian progressive tax and social insurance, and a mobile app so people can check in from wherever they actually are.",
+    c2_fact1_k: 'Stack',
+    c2_fact1_v: 'Supabase · PWA · GPS-based attendance',
+    c2_fact2_k: 'Built',
+    c2_fact2_v: 'Employees, attendance, leave, payroll — plus a full admin dashboard and a mobile PWA',
+    c2_fact3_k: 'Notable',
+    c2_fact3_v: 'Progressive-tax engine and insurance calculations built to match how Egyptian payroll actually works, not how the textbooks describe it',
+
+    c3_year:  '2024–2026 · live on the App Store',
+    c3_title: 'Align with Enjy — an iOS app I built without a Mac',
+    c3_lede:  'A yoga studio was running bookings on WhatsApp. I built them a booking app for iOS — from first line of code to App Store release, without owning a Mac. The whole toolchain runs in the browser and in cloud CI.',
+    c3_fact1_k: 'Stack',
+    c3_fact1_v: 'Capacitor · Codemagic · Supabase · APNs',
+    c3_fact2_k: 'Built',
+    c3_fact2_v: 'Class schedule, bookings, payments, and push notifications; ported the PWA into a native iOS shell',
+    c3_fact3_k: 'Notable',
+    c3_fact3_v: '"Copy last week" for the studio owner, so nobody has to re-type the schedule at midnight every Sunday',
+
+    other_eyebrow: 'EVERYTHING ELSE',
+    other_title:   "Other things I've shipped",
+    o1_n: 'NOS Admin Portal',   o1_m: 'workforce management · Vanilla JS + Supabase',
+    o2_n: 'NOS Agent Portal',   o2_m: 'day-to-day dashboard for agents · Vanilla JS',
+    o3_n: 'NOS Campaigns Portal', o3_m: 'outbound campaign runner with call scripts · Realtime',
+    o4_n: 'NOS Medical Network',  o4_m: 'PDF-scraped provider directory with maps · PWA',
+    o5_n: 'Nuweiba Hub',          o5_m: 'tourism guide app for the town · React Native · Cloudflare',
+    o6_n: 'Shift Swap & break tracking', o6_m: 'Google Sheets + Apps Script tools for the WFM team',
+
+    about_eyebrow: 'ABOUT',
+    about_title:   'Quick honesty about how I work',
+    about_p1: "My day job is customer experience and workforce management at Nations of Sky, a real-estate developer in Cairo. My real hobby is fixing \"wouldn't it be nice if…\" complaints by writing the thing before someone else does. That's how most of the projects above got started.",
+    about_p2: "I don't have a computer science degree. I learned by shipping, breaking things, and rewriting them cleaner the next weekend. Everything I build runs entirely from a browser — I don't own a Mac or a development laptop. Whatever I hand you was made in GitHub's web editor, deployed on Vercel or GitHub Pages, with Supabase doing the heavy lifting behind it.",
+    about_p3: "<strong>SoloTec</strong> is the studio name. It's a promise: you talk to the person writing the code, and one person owns the whole thing end-to-end. No handoffs, no translation loss, no team meetings about meetings.",
 
     ct_eyebrow: 'CONTACT',
-    ct_title:   'Tell me what you need to build',
-    ct_sub:     "Send a message on WhatsApp and you'll get a reply the same day.",
-    ct_wa:      'Message on WhatsApp',
-    ct_email:   'Email me',
+    ct_title:   'If you have something you want built, message me.',
+    ct_sub:     'Fastest way is WhatsApp. I read messages the same day.',
+    ct_wa:      'WhatsApp: +20 111 150 9666',
 
-    term_lines: [
-      'deploying nos-cc-portal... ✓ live',
-      'shipping HRIS payroll module... ✓ done',
-      '6 systems in production, used daily',
-      'no agencies, no handoffs — just me'
-    ],
-
-    footer: '© 2026 SoloTec. Built by one, used by many.'
+    footer_line: 'Built by Kareem, in the browser, from Cairo.'
   },
 
   ar: {
-    nav_work:     'الأعمال',
-    nav_contact:  'تواصل',
-    hero_eyebrow: 'SOLOTEC · استوديو برمجيات مستقل',
-    hero_title:   'مطوّر واحد.<br>أنظمة متكاملة.',
-    hero_sub:     'من بوابات الـ CRM لمنصات واتساب لتطبيقات الـ App Store — تصميم وبناء وتسليم من الأول للآخر.',
-    cta_start:    'ابدأ مشروعك',
-    cta_work:     'شوف الأعمال',
+    nav_work:    'الأعمال',
+    nav_about:   'عني',
+    nav_contact: 'تواصل',
 
-    svc_eyebrow:  'بنبني إيه',
-    svc_title:    'أنظمة فريقك يستخدمها كل يوم',
-    svc1_t: 'بوابات ولوحات تحكم',
-    svc1_d: 'لوحات إدارة وبوابات موظفين وتقارير ببيانات لحظية.',
-    svc2_t: 'CRM وأدوات داخلية',
-    svc2_d: 'أنظمة CRM مخصصة وإدارة حملات وأدوات شغل متفصّلة على طريقة عملك الفعلية.',
-    svc3_t: 'منصات واتساب للأعمال',
-    svc3_d: 'منصات خدمة عملاء كاملة على WhatsApp API: صندوق موحد، توجيه، حملات، وتقارير.',
-    svc4_t: 'تطبيقات موبايل وPWA',
-    svc4_d: 'تطبيقات ويب قابلة للتثبيت ونسخ iOS أصلية — وصلت فعلاً للـ App Store.',
-    svc5_t: 'أنظمة موارد بشرية ورواتب',
-    svc5_d: 'حضور وإجازات ومحرك رواتب مبني على قواعد الضرائب والتأمينات المصرية.',
-    svc6_t: 'قواعد بيانات وأتمتة',
-    svc6_d: 'نماذج بيانات متينة وخطوط تقارير وأتمتة بتلغي الشغل اليدوي.',
+    hero_eyebrow:     'مطوّر برمجيات · القاهرة',
+    hero_name:        'كريم رشاد',
+    hero_lede:        'ببني السوفتوير اللي الفرق بتفتحه فعلاً كل صباح — منصات واتساب، أنظمة موارد بشرية، بوابات، وتطبيقات موبايل. غالباً لوحدي، وغالباً لناس بشتغل معاهم.',
+    hero_meta_role:   'مسؤول تجربة العملاء وإدارة القوى البشرية في Nations of Sky',
+    hero_meta_studio: 'وبأدير SoloTec على الجنب',
+    cta_wa:           'كلمني على واتساب',
+    cta_work:         'شوف الأعمال',
+    portrait_note:    'الصورة قريباً',
+
+    stat1: 'جدول في نظام الـ HR اللي بنيته',
+    stat2: 'منصات سلمتها لشركة واحدة',
+    stat3: 'تطبيق على الـ App Store',
+    stat4: 'تعلّم ذاتي، وشغل كامل من المتصفح',
 
     work_eyebrow: 'أعمال مختارة',
-    work_title:   'أنظمة حقيقية شغالة ومستخدمة يومياً',
-    w1_t: 'منصة خدمة عملاء واتساب',
-    w1_d: 'منصة دعم كاملة: صندوق موحد، توجيه ذكي للمحادثات، صلاحيات وكلاء، حملات، وخمس شاشات تقارير حية — بديل كامل لأداة مدفوعة.',
-    w2_t: 'نظام HR برواتب مصرية',
-    w2_d: 'نظام موارد بشرية بـ 26 جدول: حضور بالـ GPS، طلبات إجازات، ومحرك رواتب بيحسب الضريبة التصاعدية والتأمينات.',
-    w3_t: 'تطبيق حجز استوديو — على الـ App Store',
-    w3_d: 'جدولة حصص وحجوزات ومدفوعات وإشعارات push لاستوديو يوغا — من أول سطر كود لحد النشر على الـ App Store.',
-    w4_t: 'بوابة إدارة القوى العاملة',
-    w4_d: 'مراجعة جداول، كشف انحرافات تلقائي مقابل سجلات الكول سنتر، إجراءات جماعية، وتصدير Excel لفرق التشغيل.',
-    w5_t: 'بوابة الحملات',
-    w5_d: 'إدارة حملات صادرة بسكريبتات مكالمات من قاعدة البيانات، معالجة التكرارات، وإشعارات لحظية للوكلاء.',
-    w6_t: 'دليل الشبكة الطبية',
-    w6_d: 'بيانات مزودين مستخرجة من ملفات PDF عربية لدليل قابل للبحث والفلترة على الخريطة.',
+    work_title:   'تلاتة بفتخر بيهم',
 
-    why_eyebrow: 'ليه SoloTec',
-    why_title:   'بتكلم الشخص اللي بيكتب الكود بنفسه',
-    why1: 'نقطة تواصل واحدة من الفكرة للإطلاق — من غير وسطاء ولا حاجة بتضيع في النقل.',
-    why2: 'كل مشروع فوق ده نظام حقيقي شغال ومستخدم يومياً من فرق عمل فعلية.',
-    why3: 'تسليم سريع وخفيف — سوفتوير شغال في أيام، مش شهور اجتماعات.',
+    c1_year:  '2025 · شغّالة الآن',
+    c1_title: 'NOS Contact Center — منصة واتساب كاملة',
+    c1_lede:  'كنا بندفع لأداة واتساب من طرف تالت وحدودها كانت بتضايقني. بنيت بديل نمتلكه — صندوق موحد، توجيه، حملات، وتقارير.',
+    c1_fact1_k: 'الـ Stack',
+    c1_fact1_v: 'Next.js · Supabase · WhatsApp Business API · Vercel',
+    c1_fact2_k: 'بنيت',
+    c1_fact2_v: 'صندوق موحد مع توجيه محمي من race conditions، مصفوفة صلاحيات للوكلاء، خمس شاشات تقارير حية، ومدير حملات',
+    c1_fact3_k: 'المميز',
+    c1_fact3_v: 'إشعارات ثلاثية الطبقات (صوت + toast + المتصفح)، وكل الصلاحيات بتمر عبر مصفوفة Terms & Roles واحدة',
+
+    c2_year:  '2024–2025 · شغّال الآن',
+    c2_title: 'Tawreedat HRIS — رواتب مصرية من الصفر',
+    c2_lede:  'نظام موارد بشرية كامل لعميل كان لسه على ملفات إكسل. 26 جدول، محرك رواتب بيفهم الضريبة التصاعدية والتأمينات المصرية، وتطبيق موبايل يخلي الناس تسجل حضورها من مكانها الفعلي.',
+    c2_fact1_k: 'الـ Stack',
+    c2_fact1_v: 'Supabase · PWA · حضور بالـ GPS',
+    c2_fact2_k: 'بنيت',
+    c2_fact2_v: 'موظفين، حضور، إجازات، رواتب — بجانب لوحة تحكم إدارية كاملة وتطبيق موبايل PWA',
+    c2_fact3_k: 'المميز',
+    c2_fact3_v: 'محرك ضريبة تصاعدية وحسابات تأمينات بيوافق طريقة عمل الرواتب المصرية الفعلية، مش وصفة الكتب',
+
+    c3_year:  '2024–2026 · على الـ App Store',
+    c3_title: 'Align with Enjy — تطبيق iOS بنيته بدون Mac',
+    c3_lede:  'استوديو يوجا كان بيدير الحجوزات على واتساب. بنيتلهم تطبيق حجز على iOS — من أول سطر كود لحد النشر على الـ App Store، من غير ما يبقى عندي Mac. كل الـ toolchain شغال من المتصفح ومن CI في الـ Cloud.',
+    c3_fact1_k: 'الـ Stack',
+    c3_fact1_v: 'Capacitor · Codemagic · Supabase · APNs',
+    c3_fact2_k: 'بنيت',
+    c3_fact2_v: 'جدول الحصص، الحجوزات، المدفوعات، وإشعارات push؛ نقلت الـ PWA إلى shell أصلي لـ iOS',
+    c3_fact3_k: 'المميز',
+    c3_fact3_v: '"Copy Last Week" لصاحبة الاستوديو، عشان محدش يعيد كتابة الجدول كل أحد بعد نص الليل',
+
+    other_eyebrow: 'باقي الشغل',
+    other_title:   'حاجات تانية سلمتها',
+    o1_n: 'NOS Admin Portal',        o1_m: 'إدارة القوى البشرية · Vanilla JS + Supabase',
+    o2_n: 'NOS Agent Portal',        o2_m: 'لوحة الوكيل اليومية · Vanilla JS',
+    o3_n: 'NOS Campaigns Portal',    o3_m: 'مشغل الحملات الصادرة مع سكريبتات المكالمات · Realtime',
+    o4_n: 'NOS Medical Network',     o4_m: 'دليل شبكة طبية مستخرج من PDF بالخرائط · PWA',
+    o5_n: 'Nuweiba Hub',             o5_m: 'دليل سياحي للمدينة · React Native · Cloudflare',
+    o6_n: 'Shift Swap & متابعة البريكات', o6_m: 'أدوات Google Sheets + Apps Script لفريق الـ WFM',
+
+    about_eyebrow: 'عني',
+    about_title:   'كلام صريح عن طريقة شغلي',
+    about_p1: 'شغلي الرسمي في Nations of Sky، شركة تطوير عقاري بالقاهرة، كمسؤول تجربة عملاء وإدارة قوى بشرية. هوايتي الحقيقية: أصلح شكاوى الـ "يا ريت لو…" بأني أكتب الحل قبل ما حد تاني يفكر فيه. معظم المشاريع فوق بدأت كده.',
+    about_p2: 'مش عندي شهادة علوم حاسب. اتعلمت بأني بأشتغل، بأكسر حاجات، وبأعيد كتابتها بشكل أنضف الأسبوع اللي بعده. كل حاجة ببنيها بتشتغل من متصفح فقط — مش عندي Mac ولا laptop تطوير. أي حاجة بأسلمها اتعملت في GitHub Web Editor، اتنشرت على Vercel أو GitHub Pages، مع Supabase شغالة تحت.',
+    about_p3: '<strong>SoloTec</strong> هو اسم الاستوديو. وهو وعد: بتكلم الشخص اللي بيكتب الكود، وشخص واحد بيمسك المشروع من أوله لآخره. من غير وسطاء، من غير حاجة تضيع في النقل، من غير اجتماعات عن اجتماعات.',
 
     ct_eyebrow: 'تواصل',
-    ct_title:   'قولي محتاج تبني إيه',
-    ct_sub:     'ابعت رسالة واتساب وهيوصلك رد في نفس اليوم.',
-    ct_wa:      'راسلني على واتساب',
-    ct_email:   'ابعتلي إيميل',
+    ct_title:   'لو عندك حاجة عايز تبنيها، كلمني.',
+    ct_sub:     'أسرع طريقة واتساب. بأقرأ الرسائل في نفس اليوم.',
+    ct_wa:      'واتساب: 9666 150 111 20+',
 
-    footer: '© 2026 SoloTec. بنَاه واحد، بيستخدمه كتير.'
+    footer_line: 'بنَاه كريم، من المتصفح، من القاهرة.'
   }
 };
 
-
-/* ─── 2. LANGUAGE TOGGLE ─── */
 const langToggle = document.getElementById('langToggle');
 
 function applyLang(lang) {
   const dict = i18n[lang];
   if (!dict) return;
-
   document.documentElement.lang = lang;
   document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
-
   document.querySelectorAll('[data-i18n]').forEach(function (el) {
     const key = el.getAttribute('data-i18n');
     if (dict[key] !== undefined) el.innerHTML = dict[key];
   });
-
   if (langToggle) langToggle.textContent = (lang === 'ar') ? 'EN' : 'ع';
-
   try { localStorage.setItem('solotec-lang', lang); } catch (e) { /* private mode */ }
 }
 
@@ -149,87 +176,9 @@ if (langToggle) {
   });
 }
 
-/* لغة محفوظة، أو لغة المتصفح كافتراضي */
 (function initLang() {
   let saved = null;
   try { saved = localStorage.getItem('solotec-lang'); } catch (e) { /* ignore */ }
   const browserAr = (navigator.language || '').toLowerCase().startsWith('ar');
   applyLang(saved || (browserAr ? 'ar' : 'en'));
-})();
-
-
-/* ─── 4. HERO TERMINAL TYPEWRITER ─── */
-(function initTerminal() {
-  const el = document.getElementById('terminalText');
-  if (!el) return;
-
-  const lines = i18n.en.term_lines || [];
-  if (!lines.length) return;
-
-  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduceMotion) {
-    el.textContent = lines[0];
-    return;
-  }
-
-  const TYPE_MS = 45;
-  const DELETE_MS = 22;
-  const HOLD_MS = 1600;
-  const GAP_MS = 350;
-
-  let lineIndex = 0;
-  let timer = null;
-
-  function typeLine() {
-    const full = lines[lineIndex];
-    let i = 0;
-    el.textContent = '';
-
-    (function typeChar() {
-      i++;
-      el.textContent = full.slice(0, i);
-      if (i < full.length) {
-        timer = setTimeout(typeChar, TYPE_MS);
-      } else {
-        timer = setTimeout(deleteLine, HOLD_MS);
-      }
-    })();
-  }
-
-  function deleteLine() {
-    const full = lines[lineIndex];
-    let i = full.length;
-
-    (function deleteChar() {
-      i--;
-      el.textContent = full.slice(0, i);
-      if (i > 0) {
-        timer = setTimeout(deleteChar, DELETE_MS);
-      } else {
-        lineIndex = (lineIndex + 1) % lines.length;
-        timer = setTimeout(typeLine, GAP_MS);
-      }
-    })();
-  }
-
-  typeLine();
-})();
-
-
-/* ─── 5. SCROLL REVEAL ─── */
-(function initReveal() {
-  const items = document.querySelectorAll('.reveal');
-  if (!('IntersectionObserver' in window)) {
-    items.forEach(function (el) { el.classList.add('visible'); });
-    return;
-  }
-  const io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  items.forEach(function (el) { io.observe(el); });
 })();

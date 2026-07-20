@@ -1,81 +1,96 @@
-# SoloTec — Portfolio Site
+# Kareem Rashad — Personal site
 
-One-page bilingual (EN/AR) portfolio for SoloTec, built as static HTML/CSS/JS.
+Static portfolio, bilingual EN/AR, deploys anywhere that serves static files.
 
-## Structure
+## Files
 
 ```
 solotec-site/
-├── index.html          # الصفحة الرئيسية
-├── styles.css          # كل الستايلات
-├── script.js           # تبديل اللغة + الحركات
-├── README.md           # هذا الملف
+├── index.html
+├── styles.css
+├── script.js
+├── README.md
 └── assets/
-    ├── logo-mark.png        # اللوجو mark فقط، شفاف (512×512) — للـ hero
-    ├── logo-wordmark.png    # اللوجو + كلمة SoloTec، شفاف (1024×432) — للـ nav والـ footer
-    ├── favicon.ico          # أيقونة المتصفح (multi-size)
-    ├── favicon-light.png    # 32×32 — أيقونة بديلة PNG
-    ├── icon-192.png         # 192×192 — لو حبيت تضيف manifest.json / PWA
-    ├── icon-512.png         # 512×512 — لو حبيت تضيف manifest.json / PWA
-    ├── apple-touch-icon.png # 180×180 — أيقونة iOS
-    └── og-image.png         # 1200×630 — كارت مشاركة السوشيال
+    ├── logo-mark.svg          ← main hexagon logo (transparent bg)
+    ├── logo-wordmark.svg      ← hexagon + "SoloTec" wordmark
+    ├── portrait-placeholder.svg  ← temporary silhouette until real photo
+    ├── mockups/
+    │   ├── mockup-whatsapp.svg   ← Case 1 preview
+    │   ├── mockup-hris.svg       ← Case 2 preview
+    │   └── mockup-ios.svg        ← Case 3 preview
+    └── icons/
+        ├── favicon.png            (64×64)
+        ├── apple-touch-icon.png   (180×180)
+        └── og-image.png           (1200×630, social preview card)
 ```
 
-## Update before publishing
+## What's real, what's placeholder
 
-الملفات جاهزة بالمعلومات دي:
+| Element | Status |
+|---|---|
+| Name, role, location | ✅ from you |
+| Phone / email / LinkedIn / GitHub links | ✅ from you |
+| Case study text (WhatsApp / HRIS / iOS) | ✅ from your real projects |
+| Screenshot mockups | ⚠️ illustrative — replace with real screenshots when you have them |
+| Portrait | ⚠️ silhouette — replace `assets/portrait-placeholder.svg` with your photo |
+| Facebook / Instagram / TikTok links | ⚠️ set to `#` — update in `index.html` after creating the pages |
+| App Store link | ⚠️ not linked yet — add it inline in Case 3 when the app is public |
 
-- **رقم الواتساب:** `+20 111 150 9666`
-- **الإيميل:** `Soloever2@gmail.com`
+## What still to do before publishing
 
-اللي محتاج تحدّثه فقط:
+1. **Portrait.** Replace `assets/portrait-placeholder.svg` with a real headshot (cropped hexagonal or square, ~600×600px works). Or crop your photo into a hexagon using [hexagon-crop.com](https://hexagon-crop.com) and export as PNG.
+2. **Social links.** In `index.html`, find the `.socials` section and swap the three `href="#"` for your real Facebook, Instagram, TikTok URLs after you create the pages.
+3. **Real screenshots.** When you're ready, drop real screenshots into `assets/mockups/` (same names, PNG or JPG) — no code change needed.
 
-1. **`index.html` → قسم `.socials`:**
-   بدّل `href="#"` بلينكات صفحاتك الحقيقية على Facebook، Instagram، TikTok بعد ما تعمل الصفحات.
+## Deploy on GitHub Pages
 
-2. **`index.html` → meta `og:image` (اختياري):**
-   لما ترفع على GitHub Pages بدومين نهائي، أضف URL كامل عشان مشاركات السوشيال تشتغل صح:
-   ```html
-   <meta property="og:url" content="https://YOUR-USERNAME.github.io/solotec/">
-   ```
-
-## Publish on GitHub Pages
-
-1. اعمل repo جديد باسم `solotec` (أو أي اسم).
-2. ارفع كل محتوى المجلد ده (بما فيهم مجلد `assets`).
-3. من الـ repo → Settings → Pages → Branch: `main` (أو `master`) → Save.
-4. الموقع هيشتغل خلال دقيقة على: `https://YOUR-USERNAME.github.io/REPO-NAME/`
+1. Create a repo on your GitHub (`soloever2-maker`) called `solotec` or `kareem`.
+2. Upload the whole folder as-is.
+3. Settings → Pages → Branch: `main` → Save.
+4. Live in a minute at `https://soloever2-maker.github.io/REPO-NAME/`.
 
 ## Local preview
 
-مفيش build step. افتح `index.html` مباشرة في المتصفح، أو استخدم أي static server:
+No build step.
 
 ```bash
-# لو عندك Python:
 python3 -m http.server 8000
-# ثم افتح http://localhost:8000
 ```
 
-## What powers what
+Open `http://localhost:8000`.
 
-- **Language toggle** — الزرار "ع / EN" في الـ nav. القاموس في `script.js` جوّا `i18n`. تعديل النصوص بيتم من هنا لكل من العربية والإنجليزية.
-- **Scroll reveal** — الكروت بتظهر تدريجياً مع الـ scroll (`IntersectionObserver`).
-- **Reduced motion** — لو المستخدم مفعّل `prefers-reduced-motion`, الحركات كلها بتتلغى تلقائي.
-- **Language persistence** — الاختيار بيتحفظ في `localStorage`، أول زيارة بتاخد لغة المتصفح.
+## Design decisions
 
-## Regenerating assets
+- **No sticky nav with backdrop-blur.** Nav sits at the top and stays there. This is a defining "AI-generated portfolio" pattern; removing it makes the page feel less templated.
+- **No scroll-reveal animations.** Content appears when it appears. This is another AI-generated tell.
+- **Gradient used once.** The teal→blue gradient shows up only in the "c" of the wordmark and one bottom strip in the OG image. That's it. Everything else is monochrome text on the dark background.
+- **Asymmetric case studies.** The three cases alternate sides (image left, image right, image left) instead of a symmetric grid.
+- **Real numbers.** The stats band uses actual project numbers (26 tables, 6 platforms, 1 App Store app) rather than generic "10+ years experience" filler.
+- **Personal voice.** Copy uses first person ("I built", "my day job") and specific projects by name, not corporate "we deliver" language.
 
-اللوجو (logo-mark, logo-wordmark, الأيقونات) ملفات جاهزة اتحطت زي ما هي — لو حبيت تعدّلها ابعتها لأداة تصميم اللوجو تاني. أما `og-image.png` فمولّد بسكريبت بايثون بسيط (`gen_og.py`) بياخد `logo-mark.png` الشفاف ويحط حواليه حلقات سداسي وخلفية العلامة التجارية — لو غيّرت الألوان في اللوجو، شغّل السكريبت تاني عشان يتحدّث.
+## Regenerating icons
+
+If you change the brand colors or the logo shape, run `python build_icons.py` (in the parent dir where this project was built) to re-generate `favicon.png`, `apple-touch-icon.png`, and `og-image.png` in one shot.
 
 ## Brand tokens
 
 ```
-Teal:    #3AF6C7
-Blue:    #1FA1FF
-BG:      #1B1E28
-Surface: #232735
-Text:    #F3F6FA
-Muted:   #8B96A8
+Teal:      #00B69B
+Blue:      #0EA5E9
+BG:        #0D1526
+Surface:   #17203A
+Text:      #E8EDF5
+Muted:     #8B95A8
+Dim:       #5A6685
 ```
 
-الـ gradient الأساسي: `linear-gradient(135deg, #3AF6C7, #1FA1FF)` — يظهر في الأزرار الأساسية، حرف S داخل السداسي، وحرف c في كلمة SoloTec، وحلقات السداسي المتحركة خلف اللوجو في الـ hero.
+Gradient direction: **vertical** (`180deg`), teal at top, blue at bottom.
+
+## Fonts
+
+- Space Grotesk (display, headings, big numbers)
+- Inter (body copy, UI)
+- JetBrains Mono (eyebrows, tech labels, small caps)
+- IBM Plex Sans Arabic (Arabic mode)
+
+Loaded from Google Fonts. No self-hosted files needed.

@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" fill="none">
+  <defs>
+    <linearGradient id="hrGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00B69B"/>
+      <stop offset="1" stop-color="#0EA5E9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Window frame -->
+  <rect x="10" y="10" width="580" height="360" rx="10" fill="#0D1526" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+  <!-- Top bar dots -->
+  <circle cx="28" cy="27" r="4" fill="#3E4A63"/>
+  <circle cx="42" cy="27" r="4" fill="#3E4A63"/>
+  <circle cx="56" cy="27" r="4" fill="#3E4A63"/>
+  <line x1="10" y1="44" x2="590" y2="44" stroke="rgba(255,255,255,0.06)"/>
+
+  <!-- Sidebar -->
+  <line x1="160" y1="44" x2="160" y2="370" stroke="rgba(255,255,255,0.06)"/>
+  <g font-family="Inter, sans-serif" font-size="10" fill="#94A3B8">
+    <rect x="16" y="60" width="128" height="26" rx="5" fill="#17203A"/>
+    <text x="30" y="77" fill="#E8EDF5" font-weight="500">Employees</text>
+    <text x="30" y="107">Attendance</text>
+    <text x="30" y="128">Leave</text>
+    <text x="30" y="149">Payroll</text>
+    <text x="30" y="170">Reports</text>
+  </g>
+
+  <!-- Main content: KPI cards -->
+  <g font-family="Inter, sans-serif">
+    <!-- Card 1 -->
+    <rect x="178" y="64" width="120" height="60" rx="6" fill="#17203A"/>
+    <text x="188" y="82" font-size="9" fill="#8B95A8">Employees</text>
+    <text x="188" y="108" font-size="22" font-weight="700" fill="url(#hrGrad)">247</text>
+
+    <!-- Card 2 -->
+    <rect x="308" y="64" width="120" height="60" rx="6" fill="#17203A"/>
+    <text x="318" y="82" font-size="9" fill="#8B95A8">Present today</text>
+    <text x="318" y="108" font-size="22" font-weight="700" fill="#E8EDF5">231</text>
+
+    <!-- Card 3 -->
+    <rect x="438" y="64" width="140" height="60" rx="6" fill="#17203A"/>
+    <text x="448" y="82" font-size="9" fill="#8B95A8">Payroll this month</text>
+    <text x="448" y="108" font-size="18" font-weight="700" fill="#E8EDF5">EGP 1.8M</text>
+  </g>
+
+  <!-- Table header -->
+  <g font-family="Inter, sans-serif" font-size="9" fill="#8B95A8">
+    <line x1="178" y1="150" x2="578" y2="150" stroke="rgba(255,255,255,0.06)"/>
+    <text x="188" y="167">EMPLOYEE</text>
+    <text x="318" y="167">DEPARTMENT</text>
+    <text x="410" y="167">STATUS</text>
+    <text x="500" y="167">CHECK-IN</text>
+    <line x1="178" y1="176" x2="578" y2="176" stroke="rgba(255,255,255,0.06)"/>
+  </g>
+
+  <!-- Table rows -->
+  <g font-family="Inter, sans-serif" font-size="10" fill="#E8EDF5">
+    <!-- row 1 -->
+    <circle cx="196" cy="196" r="8" fill="#2A3654"/>
+    <text x="212" y="200">Ahmed M.</text>
+    <text x="318" y="200" fill="#94A3B8">Operations</text>
+    <circle cx="418" cy="197" r="4" fill="#00B69B"/>
+    <text x="428" y="200" fill="#00B69B">Present</text>
+    <text x="500" y="200" fill="#94A3B8">08:47</text>
+    <line x1="178" y1="212" x2="578" y2="212" stroke="rgba(255,255,255,0.04)"/>
+
+    <!-- row 2 -->
+    <circle cx="196" cy="230" r="8" fill="#2A3654"/>
+    <text x="212" y="234">Nour K.</text>
+    <text x="318" y="234" fill="#94A3B8">Finance</text>
+    <circle cx="418" cy="231" r="4" fill="#00B69B"/>
+    <text x="428" y="234" fill="#00B69B">Present</text>
+    <text x="500" y="234" fill="#94A3B8">08:52</text>
+    <line x1="178" y1="246" x2="578" y2="246" stroke="rgba(255,255,255,0.04)"/>
+
+    <!-- row 3 -->
+    <circle cx="196" cy="264" r="8" fill="#2A3654"/>
+    <text x="212" y="268">Marwan A.</text>
+    <text x="318" y="268" fill="#94A3B8">Sales</text>
+    <circle cx="418" cy="265" r="4" fill="#EAB308"/>
+    <text x="428" y="268" fill="#EAB308">On leave</text>
+    <text x="500" y="268" fill="#94A3B8">—</text>
+    <line x1="178" y1="280" x2="578" y2="280" stroke="rgba(255,255,255,0.04)"/>
+
+    <!-- row 4 -->
+    <circle cx="196" cy="298" r="8" fill="#2A3654"/>
+    <text x="212" y="302">Salma H.</text>
+    <text x="318" y="302" fill="#94A3B8">HR</text>
+    <circle cx="418" cy="299" r="4" fill="#00B69B"/>
+    <text x="428" y="302" fill="#00B69B">Present</text>
+    <text x="500" y="302" fill="#94A3B8">08:39</text>
+    <line x1="178" y1="314" x2="578" y2="314" stroke="rgba(255,255,255,0.04)"/>
+
+    <!-- row 5 -->
+    <circle cx="196" cy="332" r="8" fill="#2A3654"/>
+    <text x="212" y="336">Karim S.</text>
+    <text x="318" y="336" fill="#94A3B8">IT</text>
+    <circle cx="418" cy="333" r="4" fill="#94A3B8"/>
+    <text x="428" y="336" fill="#94A3B8">Remote</text>
+    <text x="500" y="336" fill="#94A3B8">09:15</text>
+  </g>
+</svg>

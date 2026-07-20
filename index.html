@@ -3,30 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SoloTec — One developer. Complete systems.</title>
-  <meta name="description" content="SoloTec builds complete business systems — CRM portals, WhatsApp platforms, HR systems, and mobile apps — designed, built, and shipped end to end by one developer.">
-  <meta name="theme-color" content="#1B1E28">
+  <title>Kareem Rashad — Software developer, Cairo</title>
+  <meta name="description" content="I'm Kareem, a software developer in Cairo. I build the internal tools teams actually use every day — WhatsApp platforms, HR systems, portals, and mobile apps.">
+  <meta name="theme-color" content="#0D1526">
 
-  <!-- ═══ Icons ═══ -->
-  <link rel="icon" href="assets/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-light.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512.png">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="assets/logo-mark.svg">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/icons/favicon.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
 
-  <!-- ═══ Open Graph (social sharing card) ═══ -->
-  <meta property="og:title" content="SoloTec — One developer. Complete systems.">
-  <meta property="og:description" content="CRM portals, WhatsApp platforms, HR systems, and App Store apps — built end to end.">
+  <meta property="og:title" content="Kareem Rashad — Software developer, Cairo">
+  <meta property="og:description" content="I build internal tools teams actually use every day — WhatsApp platforms, HR systems, portals, and mobile apps.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/og-image.png">
+  <meta property="og:image" content="assets/icons/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- ═══ Fonts ═══ -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -34,182 +29,236 @@
 
   <!-- ═══════════════ NAV ═══════════════ -->
   <nav class="nav">
-    <a href="#top" class="nav-logo" aria-label="SoloTec home">
-      <img src="assets/logo-wordmark.png" alt="SoloTec" class="nav-logo-img">
+    <a href="#top" class="nav-brand" aria-label="SoloTec">
+      <img src="assets/logo-mark.svg" alt="" class="nav-mark">
+      <span class="nav-word">Solo<span class="grad">Tec</span></span>
     </a>
     <div class="nav-actions">
-      <a href="#work" data-i18n="nav_work" class="nav-link">Work</a>
-      <a href="#contact" data-i18n="nav_contact" class="nav-link">Contact</a>
+      <a href="#work" class="nav-link" data-i18n="nav_work">Work</a>
+      <a href="#about" class="nav-link" data-i18n="nav_about">About</a>
+      <a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
       <button id="langToggle" class="lang-toggle" aria-label="Switch language">ع</button>
     </div>
   </nav>
 
   <!-- ═══════════════ HERO ═══════════════ -->
   <header class="hero" id="top">
-    <div class="hero-visual" aria-hidden="true">
-      <svg class="hero-rings" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#3AF6C7"/>
-            <stop offset="100%" stop-color="#1FA1FF"/>
-          </linearGradient>
-        </defs>
-        <polygon class="ring ring-1" points="200,40 337,120 337,280 200,360 63,280 63,120" />
-        <polygon class="ring ring-2" points="200,66 314,132 314,268 200,334 86,268 86,132" />
-        <polygon class="ring ring-3" points="200,92 291,144 291,256 200,308 109,256 109,144" />
-      </svg>
-      <div class="hero-glow"></div>
-      <img src="assets/logo-mark.png" alt="" class="hero-logo">
-    </div>
-    <div class="hero-copy">
-      <p class="eyebrow" data-i18n="hero_eyebrow">SOLOTEC · INDEPENDENT SOFTWARE STUDIO</p>
-      <h1 data-i18n="hero_title">One developer.<br>Complete systems.</h1>
-      <p class="hero-sub" data-i18n="hero_sub">From CRM portals to WhatsApp platforms to App Store apps — designed, built, and shipped end to end.</p>
+    <div class="hero-main">
+      <p class="eyebrow" data-i18n="hero_eyebrow">SOFTWARE DEVELOPER · CAIRO</p>
+      <h1 class="hero-name" data-i18n="hero_name">Kareem Rashad</h1>
+      <p class="hero-lede" data-i18n="hero_lede">
+        I build the internal software teams actually open every morning — WhatsApp platforms,
+        HR systems, portals, and mobile apps. Mostly alone, mostly for people I work with.
+      </p>
+      <div class="hero-meta">
+        <span data-i18n="hero_meta_role">Customer experience &amp; workforce lead at Nations of Sky</span>
+        <span class="dot-sep">·</span>
+        <span data-i18n="hero_meta_studio">Running SoloTec on the side</span>
+      </div>
       <div class="hero-cta">
-        <a href="https://wa.me/201111509666" class="btn btn-primary" data-i18n="cta_start" target="_blank" rel="noopener">Start a project</a>
-        <a href="#work" class="btn btn-ghost" data-i18n="cta_work">See the work</a>
+        <a href="https://wa.me/201111509666" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="cta_wa">WhatsApp me</a>
+        <a href="#work" class="btn btn-ghost" data-i18n="cta_work">Look at the work</a>
       </div>
-
-      <div class="terminal" aria-hidden="true">
-        <div class="terminal-bar">
-          <span class="term-dot dot-red"></span>
-          <span class="term-dot dot-yellow"></span>
-          <span class="term-dot dot-green"></span>
-          <span class="terminal-title">solotec — zsh</span>
-        </div>
-        <div class="terminal-body">
-          <span class="terminal-prompt">solotec@studio</span><span class="terminal-colon">:~$</span>
-          <span class="terminal-text" id="terminalText"></span><span class="terminal-cursor">▌</span>
-        </div>
+      <div class="hero-links">
+        <a href="https://github.com/soloever2-maker" target="_blank" rel="noopener" class="pill-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.16 19.5c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.82.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/kareem-rashad-93b258a2/" target="_blank" rel="noopener" class="pill-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.22 8h4.56v14H.22V8ZM8 8h4.37v1.93h.06c.61-1.16 2.1-2.38 4.32-2.38C21.4 7.55 22 10.13 22 13.34V22h-4.56v-7.7c0-1.83-.03-4.19-2.55-4.19-2.56 0-2.95 2-2.95 4.06V22H7.4V8H8Z"/></svg>
+          LinkedIn
+        </a>
+        <a href="mailto:Soloever2@gmail.com" class="pill-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v.4l-10 6-10-6V6Zm0 2.75V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8.75l-10 6-10-6Z"/></svg>
+          Email
+        </a>
       </div>
     </div>
+
+    <aside class="hero-portrait" aria-hidden="true">
+      <img src="assets/portrait-placeholder.svg" alt="">
+      <p class="portrait-note" data-i18n="portrait_note">Photo coming soon</p>
+    </aside>
   </header>
 
-  <!-- ═══════════════ SERVICES ═══════════════ -->
-  <section class="section" id="services">
-    <p class="eyebrow" data-i18n="svc_eyebrow">WHAT I BUILD</p>
-    <h2 data-i18n="svc_title">Systems your team uses every day</h2>
-    <div class="grid services-grid">
-      <article class="card reveal">
-        <h3 data-i18n="svc1_t">Web portals &amp; dashboards</h3>
-        <p data-i18n="svc1_d">Admin panels, agent portals, and reporting dashboards with real-time data.</p>
-      </article>
-      <article class="card reveal">
-        <h3 data-i18n="svc2_t">CRM &amp; internal tools</h3>
-        <p data-i18n="svc2_d">Custom CRMs, campaign managers, and workflow tools shaped around how you actually work.</p>
-      </article>
-      <article class="card reveal">
-        <h3 data-i18n="svc3_t">WhatsApp business platforms</h3>
-        <p data-i18n="svc3_d">Full contact-center platforms on the WhatsApp API: inbox, routing, campaigns, reports.</p>
-      </article>
-      <article class="card reveal">
-        <h3 data-i18n="svc4_t">Mobile &amp; PWA apps</h3>
-        <p data-i18n="svc4_d">Installable web apps and native iOS builds — shipped to the App Store.</p>
-      </article>
-      <article class="card reveal">
-        <h3 data-i18n="svc5_t">HR &amp; payroll systems</h3>
-        <p data-i18n="svc5_d">Attendance, leave, and payroll engines built for Egyptian tax and insurance rules.</p>
-      </article>
-      <article class="card reveal">
-        <h3 data-i18n="svc6_t">Databases &amp; automation</h3>
-        <p data-i18n="svc6_d">Solid data models, reporting pipelines, and automations that remove manual work.</p>
-      </article>
+  <!-- ═══════════════ STATS ═══════════════ -->
+  <section class="stats-band">
+    <div class="stat">
+      <div class="stat-num">26</div>
+      <div class="stat-label" data-i18n="stat1">tables in the HRIS I built</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">6</div>
+      <div class="stat-label" data-i18n="stat2">platforms shipped for one company</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">1</div>
+      <div class="stat-label" data-i18n="stat3">app live on the App Store</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-label" data-i18n="stat4">self-taught, shipped from a browser</div>
     </div>
   </section>
 
-  <!-- ═══════════════ WORK ═══════════════ -->
+  <!-- ═══════════════ WORK — 3 case studies ═══════════════ -->
   <section class="section" id="work">
-    <p class="eyebrow" data-i18n="work_eyebrow">SELECTED WORK</p>
-    <h2 data-i18n="work_title">Real systems, in production, used daily</h2>
-    <div class="grid work-grid">
-
-      <article class="card work-card reveal">
-        <div class="work-tags"><span>Next.js</span><span>Supabase</span><span>WhatsApp API</span></div>
-        <h3 data-i18n="w1_t">WhatsApp Contact Center</h3>
-        <p data-i18n="w1_d">A complete support platform: shared inbox, smart conversation routing, agent permissions, campaigns, and five live reporting views — replacing a paid third-party tool.</p>
-      </article>
-
-      <article class="card work-card reveal">
-        <div class="work-tags"><span>PWA</span><span>Supabase</span><span>Payroll</span></div>
-        <h3 data-i18n="w2_t">HRIS with Egyptian payroll</h3>
-        <p data-i18n="w2_d">A 26-table HR system: GPS attendance, leave requests, and a payroll engine handling progressive tax and social insurance.</p>
-      </article>
-
-      <article class="card work-card reveal">
-        <div class="work-tags"><span>iOS</span><span>Capacitor</span><span>App Store</span></div>
-        <h3 data-i18n="w3_t">Studio booking app — on the App Store</h3>
-        <p data-i18n="w3_d">Class scheduling, bookings, payments, and push notifications for a yoga studio — from first line of code to App Store release.</p>
-      </article>
-
-      <article class="card work-card reveal">
-        <div class="work-tags"><span>Vanilla JS</span><span>Realtime</span><span>WFM</span></div>
-        <h3 data-i18n="w4_t">Workforce admin portal</h3>
-        <p data-i18n="w4_d">Schedule audits, automatic deviation detection against call-center logs, bulk actions, and Excel exports for operations teams.</p>
-      </article>
-
-      <article class="card work-card reveal">
-        <div class="work-tags"><span>Campaigns</span><span>Call scripts</span><span>Realtime</span></div>
-        <h3 data-i18n="w5_t">Campaigns portal</h3>
-        <p data-i18n="w5_d">Outbound campaign management with database-driven call scripts, duplicate handling, and live agent notifications.</p>
-      </article>
-
-      <article class="card work-card reveal">
-        <div class="work-tags"><span>PWA</span><span>Geocoding</span><span>Data extraction</span></div>
-        <h3 data-i18n="w6_t">Medical network directory</h3>
-        <p data-i18n="w6_d">Provider data extracted from Arabic PDFs into a searchable, filterable map-based directory.</p>
-      </article>
-
+    <div class="section-head">
+      <p class="eyebrow" data-i18n="work_eyebrow">SELECTED WORK</p>
+      <h2 data-i18n="work_title">Three that I keep coming back to</h2>
     </div>
+
+    <!-- Case 1: WhatsApp -->
+    <article class="case">
+      <div class="case-media">
+        <img src="assets/mockups/mockup-whatsapp.svg" alt="Screenshot of the NOS Contact Center inbox">
+      </div>
+      <div class="case-body">
+        <p class="case-year" data-i18n="c1_year">2025 · in production</p>
+        <h3 data-i18n="c1_title">NOS Contact Center — a WhatsApp platform</h3>
+        <p class="case-lede" data-i18n="c1_lede">
+          Our team was paying for a third-party WhatsApp tool with limits I kept hitting.
+          I replaced it with a platform we own — inbox, routing, campaigns, and reporting.
+        </p>
+        <ul class="case-facts">
+          <li><span class="fact-k" data-i18n="c1_fact1_k">Stack</span><span data-i18n="c1_fact1_v">Next.js · Supabase · WhatsApp Business API · Vercel</span></li>
+          <li><span class="fact-k" data-i18n="c1_fact2_k">Built</span><span data-i18n="c1_fact2_v">Shared inbox with race-safe routing, agent permissions matrix, five live reporting views, campaign manager</span></li>
+          <li><span class="fact-k" data-i18n="c1_fact3_k">Notable</span><span data-i18n="c1_fact3_v">Three-layer notifications (sound + toast + browser), all permissions flow through one Terms &amp; Roles matrix</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- Case 2: HRIS -->
+    <article class="case case-reverse">
+      <div class="case-media">
+        <img src="assets/mockups/mockup-hris.svg" alt="Screenshot of the HRIS employee dashboard">
+      </div>
+      <div class="case-body">
+        <p class="case-year" data-i18n="c2_year">2024–2025 · in production</p>
+        <h3 data-i18n="c2_title">Tawreedat HRIS — Egyptian payroll from scratch</h3>
+        <p class="case-lede" data-i18n="c2_lede">
+          A full HR platform for a client who was still on spreadsheets. Twenty-six tables,
+          a payroll engine that understands Egyptian progressive tax and social insurance,
+          and a mobile app so people can check in from wherever they actually are.
+        </p>
+        <ul class="case-facts">
+          <li><span class="fact-k" data-i18n="c2_fact1_k">Stack</span><span data-i18n="c2_fact1_v">Supabase · PWA · GPS-based attendance</span></li>
+          <li><span class="fact-k" data-i18n="c2_fact2_k">Built</span><span data-i18n="c2_fact2_v">Employees, attendance, leave, payroll — plus a full admin dashboard and a mobile PWA</span></li>
+          <li><span class="fact-k" data-i18n="c2_fact3_k">Notable</span><span data-i18n="c2_fact3_v">Progressive-tax engine and insurance calculations built to match how Egyptian payroll actually works, not how the textbooks describe it</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- Case 3: iOS -->
+    <article class="case">
+      <div class="case-media">
+        <img src="assets/mockups/mockup-ios.svg" alt="Screenshot of the Align with Enjy iOS app">
+      </div>
+      <div class="case-body">
+        <p class="case-year" data-i18n="c3_year">2024–2026 · live on the App Store</p>
+        <h3 data-i18n="c3_title">Align with Enjy — an iOS app I built without a Mac</h3>
+        <p class="case-lede" data-i18n="c3_lede">
+          A yoga studio was running bookings on WhatsApp. I built them a booking app for iOS —
+          from first line of code to App Store release, without owning a Mac. The whole toolchain
+          runs in the browser and in cloud CI.
+        </p>
+        <ul class="case-facts">
+          <li><span class="fact-k" data-i18n="c3_fact1_k">Stack</span><span data-i18n="c3_fact1_v">Capacitor · Codemagic · Supabase · APNs</span></li>
+          <li><span class="fact-k" data-i18n="c3_fact2_k">Built</span><span data-i18n="c3_fact2_v">Class schedule, bookings, payments, and push notifications; ported the PWA into a native iOS shell</span></li>
+          <li><span class="fact-k" data-i18n="c3_fact3_k">Notable</span><span data-i18n="c3_fact3_v">"Copy last week" for the studio owner, so nobody has to re-type the schedule at midnight every Sunday</span></li>
+        </ul>
+      </div>
+    </article>
   </section>
 
-  <!-- ═══════════════ WHY ═══════════════ -->
-  <section class="section why" id="why">
-    <p class="eyebrow" data-i18n="why_eyebrow">WHY SOLOTEC</p>
-    <h2 data-i18n="why_title">You talk to the person who writes the code</h2>
-    <div class="grid why-grid">
-      <div class="why-item reveal">
-        <span class="why-dot"></span>
-        <p data-i18n="why1">One point of contact from idea to launch — no handoffs, nothing lost in translation.</p>
-      </div>
-      <div class="why-item reveal">
-        <span class="why-dot"></span>
-        <p data-i18n="why2">Every project above is a real production system used daily by working teams.</p>
-      </div>
-      <div class="why-item reveal">
-        <span class="why-dot"></span>
-        <p data-i18n="why3">Fast, lean delivery — working software in days, not months of meetings.</p>
-      </div>
+  <!-- ═══════════════ OTHER WORK — flat list ═══════════════ -->
+  <section class="section other" id="other">
+    <div class="section-head">
+      <p class="eyebrow" data-i18n="other_eyebrow">EVERYTHING ELSE</p>
+      <h2 data-i18n="other_title">Other things I've shipped</h2>
+    </div>
+    <ul class="other-list">
+      <li>
+        <span class="other-name" data-i18n="o1_n">NOS Admin Portal</span>
+        <span class="other-meta" data-i18n="o1_m">workforce management · Vanilla JS + Supabase</span>
+      </li>
+      <li>
+        <span class="other-name" data-i18n="o2_n">NOS Agent Portal</span>
+        <span class="other-meta" data-i18n="o2_m">day-to-day dashboard for agents · Vanilla JS</span>
+      </li>
+      <li>
+        <span class="other-name" data-i18n="o3_n">NOS Campaigns Portal</span>
+        <span class="other-meta" data-i18n="o3_m">outbound campaign runner with call scripts · Realtime</span>
+      </li>
+      <li>
+        <span class="other-name" data-i18n="o4_n">NOS Medical Network</span>
+        <span class="other-meta" data-i18n="o4_m">PDF-scraped provider directory with maps · PWA</span>
+      </li>
+      <li>
+        <span class="other-name" data-i18n="o5_n">Nuweiba Hub</span>
+        <span class="other-meta" data-i18n="o5_m">tourism guide app for the town · React Native · Cloudflare</span>
+      </li>
+      <li>
+        <span class="other-name" data-i18n="o6_n">Shift Swap &amp; break tracking</span>
+        <span class="other-meta" data-i18n="o6_m">Google Sheets + Apps Script tools for the WFM team</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ═══════════════ ABOUT ═══════════════ -->
+  <section class="section about" id="about">
+    <div class="section-head">
+      <p class="eyebrow" data-i18n="about_eyebrow">ABOUT</p>
+      <h2 data-i18n="about_title">Quick honesty about how I work</h2>
+    </div>
+    <div class="about-body">
+      <p data-i18n="about_p1">
+        My day job is customer experience and workforce management at Nations of Sky, a real-estate
+        developer in Cairo. My real hobby is fixing "wouldn't it be nice if…" complaints by writing
+        the thing before someone else does. That's how most of the projects above got started.
+      </p>
+      <p data-i18n="about_p2">
+        I don't have a computer science degree. I learned by shipping, breaking things, and rewriting
+        them cleaner the next weekend. Everything I build runs entirely from a browser — I don't
+        own a Mac or a development laptop. Whatever I hand you was made in GitHub's web editor,
+        deployed on Vercel or GitHub Pages, with Supabase doing the heavy lifting behind it.
+      </p>
+      <p data-i18n="about_p3">
+        <strong>SoloTec</strong> is the studio name. It's a promise: you talk to the person writing
+        the code, and one person owns the whole thing end-to-end. No handoffs, no translation loss,
+        no team meetings about meetings.
+      </p>
     </div>
   </section>
 
   <!-- ═══════════════ CONTACT ═══════════════ -->
   <section class="section contact" id="contact">
-    <p class="eyebrow" data-i18n="ct_eyebrow">CONTACT</p>
-    <h2 data-i18n="ct_title">Tell me what you need to build</h2>
-    <p class="contact-sub" data-i18n="ct_sub">Send a message on WhatsApp and you'll get a reply the same day.</p>
-    <div class="hero-cta">
-      <a href="https://wa.me/201111509666" class="btn btn-primary" data-i18n="ct_wa" target="_blank" rel="noopener">Message on WhatsApp</a>
-      <a href="mailto:Soloever2@gmail.com" class="btn btn-ghost" data-i18n="ct_email">Email me</a>
-    </div>
-
-    <!-- Social links — update HREF values after creating pages -->
-    <div class="socials">
-      <a href="#" target="_blank" rel="noopener" aria-label="Facebook" data-social="facebook">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.3 0-1.1-.1-2-.1-2 0-3.4 1.2-3.4 3.5V11H8.5v3H11v7h2.5z"/></svg>
-      </a>
-      <a href="#" target="_blank" rel="noopener" aria-label="Instagram" data-social="instagram">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8zm0-2.1a5.3 5.3 0 1 1 0 10.6 5.3 5.3 0 0 1 0-10.6zm6.8-.3a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0zM12 4.2c-2.1 0-2.4 0-3.3.1-.8 0-1.3.2-1.6.3-.4.2-.7.3-1 .7-.3.3-.5.6-.7 1-.1.3-.3.8-.3 1.6-.1.9-.1 1.2-.1 3.3s0 2.4.1 3.3c0 .8.2 1.3.3 1.6.2.4.3.7.7 1 .3.3.6.5 1 .7.3.1.8.3 1.6.3.9.1 1.2.1 3.3.1s2.4 0 3.3-.1c.8 0 1.3-.2 1.6-.3.4-.2.7-.3 1-.7.3-.3.5-.6.7-1 .1-.3.3-.8.3-1.6.1-.9.1-1.2.1-3.3s0-2.4-.1-3.3c0-.8-.2-1.3-.3-1.6-.2-.4-.3-.7-.7-1-.3-.3-.6-.5-1-.7-.3-.1-.8-.3-1.6-.3-.9-.1-1.2-.1-3.3-.1zM12 2c2.2 0 2.4 0 3.3.1.9 0 1.5.2 2 .4.6.2 1 .5 1.5 1s.8.9 1 1.5c.2.5.4 1.1.4 2 .1.9.1 1.1.1 3.3s0 2.4-.1 3.3c0 .9-.2 1.5-.4 2-.2.6-.5 1-1 1.5s-.9.8-1.5 1c-.5.2-1.1.4-2 .4-.9.1-1.1.1-3.3.1s-2.4 0-3.3-.1c-.9 0-1.5-.2-2-.4-.6-.2-1-.5-1.5-1s-.8-.9-1-1.5c-.2-.5-.4-1.1-.4-2C2 14.4 2 14.2 2 12s0-2.4.1-3.3c0-.9.2-1.5.4-2 .2-.6.5-1 1-1.5s.9-.8 1.5-1c.5-.2 1.1-.4 2-.4C9.6 2 9.8 2 12 2z"/></svg>
-      </a>
-      <a href="#" target="_blank" rel="noopener" aria-label="TikTok" data-social="tiktok">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 3c.3 1.6 1.3 2.9 2.8 3.6.5.2 1 .4 1.6.4v3.1c-1.1 0-2.2-.3-3.2-.8-.4-.2-.8-.5-1.2-.8v6.4c0 3.2-2.6 5.8-5.8 5.8S5 18.1 5 14.9c0-3.2 2.6-5.8 5.8-5.8.3 0 .6 0 .9.1v3.2c-.3-.1-.6-.2-.9-.2-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7 2.7-1.2 2.7-2.7V3h3.1z"/></svg>
-      </a>
+    <div class="contact-inner">
+      <p class="eyebrow" data-i18n="ct_eyebrow">CONTACT</p>
+      <h2 data-i18n="ct_title">If you have something you want built, message me.</h2>
+      <p class="contact-sub" data-i18n="ct_sub">Fastest way is WhatsApp. I read messages the same day.</p>
+      <div class="hero-cta">
+        <a href="https://wa.me/201111509666" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="ct_wa">WhatsApp: +20 111 150 9666</a>
+        <a href="mailto:Soloever2@gmail.com" class="btn btn-ghost">Soloever2@gmail.com</a>
+      </div>
+      <div class="socials">
+        <a href="#" target="_blank" rel="noopener" aria-label="Facebook" data-social="facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.3 0-1.1-.1-2-.1-2 0-3.4 1.2-3.4 3.5V11H8.5v3H11v7h2.5z"/></svg>
+        </a>
+        <a href="#" target="_blank" rel="noopener" aria-label="Instagram" data-social="instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8zm0-2.1a5.3 5.3 0 1 1 0 10.6 5.3 5.3 0 0 1 0-10.6zm6.8-.3a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0zM12 4.2c-2.1 0-2.4 0-3.3.1-.8 0-1.3.2-1.6.3-.4.2-.7.3-1 .7-.3.3-.5.6-.7 1-.1.3-.3.8-.3 1.6-.1.9-.1 1.2-.1 3.3s0 2.4.1 3.3c0 .8.2 1.3.3 1.6.2.4.3.7.7 1 .3.3.6.5 1 .7.3.1.8.3 1.6.3.9.1 1.2.1 3.3.1s2.4 0 3.3-.1c.8 0 1.3-.2 1.6-.3.4-.2.7-.3 1-.7.3-.3.5-.6.7-1 .1-.3.3-.8.3-1.6.1-.9.1-1.2.1-3.3s0-2.4-.1-3.3c0-.8-.2-1.3-.3-1.6-.2-.4-.3-.7-.7-1-.3-.3-.6-.5-1-.7-.3-.1-.8-.3-1.6-.3-.9-.1-1.2-.1-3.3-.1zM12 2c2.2 0 2.4 0 3.3.1.9 0 1.5.2 2 .4.6.2 1 .5 1.5 1s.8.9 1 1.5c.2.5.4 1.1.4 2 .1.9.1 1.1.1 3.3s0 2.4-.1 3.3c0 .9-.2 1.5-.4 2-.2.6-.5 1-1 1.5s-.9.8-1.5 1c-.5.2-1.1.4-2 .4-.9.1-1.1.1-3.3.1s-2.4 0-3.3-.1c-.9 0-1.5-.2-2-.4-.6-.2-1-.5-1.5-1s-.8-.9-1-1.5c-.2-.5-.4-1.1-.4-2C2 14.4 2 14.2 2 12s0-2.4.1-3.3c0-.9.2-1.5.4-2 .2-.6.5-1 1-1.5s.9-.8 1.5-1c.5-.2 1.1-.4 2-.4C9.6 2 9.8 2 12 2z"/></svg>
+        </a>
+        <a href="#" target="_blank" rel="noopener" aria-label="TikTok" data-social="tiktok">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 3c.3 1.6 1.3 2.9 2.8 3.6.5.2 1 .4 1.6.4v3.1c-1.1 0-2.2-.3-3.2-.8-.4-.2-.8-.5-1.2-.8v6.4c0 3.2-2.6 5.8-5.8 5.8S5 18.1 5 14.9c0-3.2 2.6-5.8 5.8-5.8.3 0 .6 0 .9.1v3.2c-.3-.1-.6-.2-.9-.2-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7 2.7-1.2 2.7-2.7V3h3.1z"/></svg>
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- ═══════════════ FOOTER ═══════════════ -->
   <footer class="footer">
-    <img src="assets/logo-wordmark.png" alt="SoloTec" class="footer-logo">
-    <span data-i18n="footer">© 2026 SoloTec. Built by one, used by many.</span>
+    <img src="assets/logo-wordmark.svg" alt="SoloTec" class="footer-wordmark">
+    <p data-i18n="footer_line">Built by Kareem, in the browser, from Cairo.</p>
   </footer>
 
   <script src="script.js"></script>

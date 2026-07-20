@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 260" fill="none">
+  <defs>
+    <linearGradient id="sGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#00B69B"/>
+      <stop offset="1" stop-color="#0EA5E9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Solid hexagon -->
+  <polygon points="120,45 195,88 195,175 120,218 45,175 45,88"
+           fill="#17203A"
+           stroke="#00B69B"
+           stroke-width="2.5"
+           stroke-linejoin="round"/>
+
+  <!-- Gradient S -->
+  <text x="120" y="176"
+        font-family="Arial Black, Helvetica, Impact, sans-serif"
+        font-weight="900"
+        font-size="140"
+        fill="url(#sGrad)"
+        text-anchor="middle">S</text>
+
+  <!-- Dot (Solo = one) -->
+  <circle cx="163" cy="35" r="7" fill="#00B69B"/>
+</svg>

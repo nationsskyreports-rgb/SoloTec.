@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" fill="none">
+  <defs>
+    <linearGradient id="wmGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#00B69B"/>
+      <stop offset="1" stop-color="#0EA5E9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Logomark on left -->
+  <polygon points="100,45 165,82 165,148 100,185 35,148 35,82"
+           fill="#17203A"
+           stroke="#00B69B"
+           stroke-width="2.2"
+           stroke-linejoin="round"/>
+  <text x="100" y="147"
+        font-family="Arial Black, Helvetica, Impact, sans-serif"
+        font-weight="900"
+        font-size="115"
+        fill="url(#wmGrad)"
+        text-anchor="middle">S</text>
+  <circle cx="138" cy="37" r="6" fill="#00B69B"/>
+
+  <!-- Wordmark: "SoloTe" white + "c" gradient -->
+  <text x="205" y="140"
+        font-family="'Space Grotesk', 'Segoe UI', Arial, sans-serif"
+        font-weight="700"
+        font-size="100"
+        fill="#E8EDF5"
+        letter-spacing="-2">SoloTe</text>
+  <text x="565" y="140"
+        font-family="'Space Grotesk', 'Segoe UI', Arial, sans-serif"
+        font-weight="700"
+        font-size="100"
+        fill="url(#wmGrad)"
+        letter-spacing="-2">c</text>
+</svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" fill="none">
+  <defs>
+    <clipPath id="hexClip">
+      <polygon points="160,20 268,80 268,200 160,260 52,200 52,80"/>
+    </clipPath>
+    <linearGradient id="silBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1A2540"/>
+      <stop offset="1" stop-color="#0D1526"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Hexagonal frame -->
+  <polygon points="160,20 268,80 268,200 160,260 52,200 52,80"
+           fill="url(#silBg)"
+           stroke="#00B69B"
+           stroke-width="2"
+           stroke-linejoin="round"/>
+
+  <!-- Silhouette (head + shoulders) clipped to hexagon -->
+  <g clip-path="url(#hexClip)" opacity="0.6">
+    <!-- Head -->
+    <circle cx="160" cy="130" r="42" fill="#2A3654"/>
+    <!-- Shoulders -->
+    <path d="M 60 280 Q 60 200 160 200 Q 260 200 260 280 Z" fill="#2A3654"/>
+  </g>
+
+  <!-- "Photo coming" indicator (small dot bottom-right) -->
+  <circle cx="210" cy="45" r="5" fill="#00B69B"/>
+</svg>

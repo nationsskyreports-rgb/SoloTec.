@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" fill="none">
+  <defs>
+    <linearGradient id="waAccent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00B69B"/>
+      <stop offset="1" stop-color="#0EA5E9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Window frame -->
+  <rect x="10" y="10" width="580" height="360" rx="10" fill="#0D1526" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+  <!-- Top bar with 3 dots -->
+  <line x1="10" y1="44" x2="590" y2="44" stroke="rgba(255,255,255,0.06)"/>
+  <circle cx="28" cy="27" r="4" fill="#3E4A63"/>
+  <circle cx="42" cy="27" r="4" fill="#3E4A63"/>
+  <circle cx="56" cy="27" r="4" fill="#3E4A63"/>
+
+  <!-- Left sidebar: conversation list -->
+  <line x1="200" y1="44" x2="200" y2="370" stroke="rgba(255,255,255,0.06)"/>
+
+  <!-- Search box -->
+  <rect x="24" y="60" width="160" height="24" rx="12" fill="#17203A"/>
+
+  <!-- Conversation items -->
+  <g font-family="Inter, sans-serif" font-size="10" fill="#94A3B8">
+    <!-- item 1 (active) -->
+    <rect x="16" y="96" width="176" height="42" rx="6" fill="#17203A"/>
+    <circle cx="34" cy="117" r="12" fill="url(#waAccent)"/>
+    <text x="54" y="115" fill="#E8EDF5" font-weight="500">Amira Hassan</text>
+    <text x="54" y="128">Need help with booking</text>
+    <circle cx="180" cy="112" r="6" fill="#00B69B"/>
+    <text x="180" y="115" fill="#0D1526" font-size="8" font-weight="700" text-anchor="middle">3</text>
+
+    <!-- item 2 -->
+    <circle cx="34" cy="163" r="12" fill="#2A3654"/>
+    <text x="54" y="161" fill="#E8EDF5">Mahmoud Rady</text>
+    <text x="54" y="174">Thanks!</text>
+
+    <!-- item 3 -->
+    <circle cx="34" cy="203" r="12" fill="#2A3654"/>
+    <text x="54" y="201" fill="#E8EDF5">Sara K.</text>
+    <text x="54" y="214">Can you check my file</text>
+
+    <!-- item 4 -->
+    <circle cx="34" cy="243" r="12" fill="#2A3654"/>
+    <text x="54" y="241" fill="#E8EDF5">Youssef Adel</text>
+    <text x="54" y="254">Received the report</text>
+  </g>
+
+  <!-- Right side: chat area -->
+  <!-- Chat header -->
+  <circle cx="222" cy="70" r="12" fill="url(#waAccent)"/>
+  <text x="242" y="68" font-family="Inter, sans-serif" font-size="11" fill="#E8EDF5" font-weight="500">Amira Hassan</text>
+  <text x="242" y="80" font-family="Inter, sans-serif" font-size="9" fill="#00B69B">assigned to Kareem · online</text>
+
+  <line x1="200" y1="98" x2="590" y2="98" stroke="rgba(255,255,255,0.06)"/>
+
+  <!-- Chat bubbles -->
+  <!-- incoming -->
+  <rect x="220" y="118" width="200" height="36" rx="10" fill="#17203A"/>
+  <text x="230" y="133" font-family="Inter, sans-serif" font-size="10" fill="#E8EDF5">Hi, I need help with</text>
+  <text x="230" y="146" font-family="Inter, sans-serif" font-size="10" fill="#E8EDF5">my subscription plan</text>
+
+  <!-- outgoing -->
+  <rect x="380" y="168" width="190" height="36" rx="10" fill="url(#waAccent)" opacity="0.9"/>
+  <text x="390" y="183" font-family="Inter, sans-serif" font-size="10" fill="#0D1526" font-weight="500">Sure, let me pull up</text>
+  <text x="390" y="196" font-family="Inter, sans-serif" font-size="10" fill="#0D1526" font-weight="500">your account details</text>
+
+  <!-- incoming -->
+  <rect x="220" y="218" width="140" height="24" rx="10" fill="#17203A"/>
+  <text x="230" y="234" font-family="Inter, sans-serif" font-size="10" fill="#E8EDF5">Thank you!</text>
+
+  <!-- Composer -->
+  <line x1="200" y1="330" x2="590" y2="330" stroke="rgba(255,255,255,0.06)"/>
+  <rect x="220" y="342" width="300" height="20" rx="10" fill="#17203A"/>
+  <text x="232" y="356" font-family="Inter, sans-serif" font-size="9" fill="#5A6685">Type a message...</text>
+  <circle cx="560" cy="352" r="12" fill="url(#waAccent)"/>
+</svg>
