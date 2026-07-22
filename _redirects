@@ -1,0 +1,10 @@
+# Cloudflare Pages redirects
+# Docs: https://developers.cloudflare.com/pages/configuration/redirects/
+
+# Clean URLs — allow visiting /about instead of /about.html
+/about       /about.html       200
+/projects    /projects.html    200
+/contact     /contact.html     200
+
+# Fallback for old paths (in case anything got shared before)
+/home        /                 301

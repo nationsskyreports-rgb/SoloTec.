@@ -1,96 +1,118 @@
-# Kareem Rashad — Personal site
+# Kareem Rashad / SoloTec — Portfolio Site
 
-Static portfolio, bilingual EN/AR, deploys anywhere that serves static files.
+Static, multi-page, bilingual (EN/AR) portfolio. Deploys anywhere that serves static files. This build is optimized for Cloudflare Pages.
 
-## Files
+## Pages
 
 ```
 solotec-site/
-├── index.html
-├── styles.css
-├── script.js
+├── index.html          # Home — short, animated, with 4 featured projects
+├── projects.html       # 4 detailed case studies with #anchors
+├── about.html          # Personal story
+├── contact.html        # Contact info + form (mailto)
+├── _headers            # Cloudflare security & cache headers
+├── _redirects          # Clean URLs (/about → /about.html)
 ├── README.md
+├── css/
+│   └── main.css        # All styles, tokenized
+├── js/
+│   └── main.js         # Language toggle + hero banner + mobile sheet
 └── assets/
-    ├── logo-mark.svg          ← main hexagon logo (transparent bg)
-    ├── logo-wordmark.svg      ← hexagon + "SoloTec" wordmark
-    ├── portrait-placeholder.svg  ← temporary silhouette until real photo
-    ├── mockups/
-    │   ├── mockup-whatsapp.svg   ← Case 1 preview
-    │   ├── mockup-hris.svg       ← Case 2 preview
-    │   └── mockup-ios.svg        ← Case 3 preview
-    └── icons/
-        ├── favicon.png            (64×64)
-        ├── apple-touch-icon.png   (180×180)
-        └── og-image.png           (1200×630, social preview card)
+    ├── logo-mark.svg           # Hexagon + gradient S + dot (transparent bg)
+    ├── logo-wordmark.svg       # Full lockup with wordmark
+    ├── portrait.jpg            # Your photo (CSS-clipped into a hexagon)
+    ├── icons/
+    │   ├── favicon.png         # 64×64
+    │   ├── apple-touch-icon.png # 180×180
+    │   └── og-image.png        # 1200×630 for social sharing
+    ├── mockups/                # Interim SVG mockups until real screenshots arrive
+    │   ├── mockup-whatsapp.svg
+    │   ├── mockup-hris.svg
+    │   └── mockup-ios.svg
+    └── screenshots/            # Real screenshots per project
+        ├── whatsapp/
+        │   └── login.png
+        ├── hris/
+        ├── ios/
+        │   └── enjy-login.png
+        └── ops/
+            ├── agent-portal-login.png
+            ├── campaign-portal-login.png
+            └── admin-panel-login.png
 ```
 
-## What's real, what's placeholder
+## What still needs your input
 
-| Element | Status |
-|---|---|
-| Name, role, location | ✅ from you |
-| Phone / email / LinkedIn / GitHub links | ✅ from you |
-| Case study text (WhatsApp / HRIS / iOS) | ✅ from your real projects |
-| Screenshot mockups | ⚠️ illustrative — replace with real screenshots when you have them |
-| Portrait | ⚠️ silhouette — replace `assets/portrait-placeholder.svg` with your photo |
-| Facebook / Instagram / TikTok links | ⚠️ set to `#` — update in `index.html` after creating the pages |
-| App Store link | ⚠️ not linked yet — add it inline in Case 3 when the app is public |
+| Item | Status | Where to update |
+|---|---|---|
+| Real internal screenshots (dashboards, inbox, features) | Missing | Drop PNGs into `assets/screenshots/{project}/` — no code changes needed if you use the same file names |
+| Facebook / Instagram / TikTok links | Not linked | The site doesn't reference these yet — add them if/when you create the pages |
+| App Store link | Not shown | Add a link in `projects.html` under the iOS case study when the app is public |
 
-## What still to do before publishing
+## Deploy on Cloudflare Pages
 
-1. **Portrait.** Replace `assets/portrait-placeholder.svg` with a real headshot (cropped hexagonal or square, ~600×600px works). Or crop your photo into a hexagon using [hexagon-crop.com](https://hexagon-crop.com) and export as PNG.
-2. **Social links.** In `index.html`, find the `.socials` section and swap the three `href="#"` for your real Facebook, Instagram, TikTok URLs after you create the pages.
-3. **Real screenshots.** When you're ready, drop real screenshots into `assets/mockups/` (same names, PNG or JPG) — no code change needed.
+Cloudflare Pages is free, faster than GitHub Pages, gives you a custom domain with SSL, and supports the `_headers` and `_redirects` files this project includes.
 
-## Deploy on GitHub Pages
+### Method A — Direct upload (easiest, no GitHub needed)
 
-1. Create a repo on your GitHub (`soloever2-maker`) called `solotec` or `kareem`.
-2. Upload the whole folder as-is.
-3. Settings → Pages → Branch: `main` → Save.
-4. Live in a minute at `https://soloever2-maker.github.io/REPO-NAME/`.
+1. Sign in to [dash.cloudflare.com](https://dash.cloudflare.com/).
+2. In the sidebar, click **Workers & Pages** → **Create application** → **Pages** → **Upload assets**.
+3. Give the project a name: `solotec` (this becomes `solotec.pages.dev`).
+4. Drag this whole `solotec-site` folder into the upload zone.
+5. Click **Deploy site**. In ~30 seconds it's live at `https://solotec.pages.dev`.
 
-## Local preview
+### Method B — Via GitHub (recommended if you'll keep editing)
 
-No build step.
+1. Push this folder to a GitHub repo (`soloever2-maker/solotec` for example).
+2. In Cloudflare Pages → **Create application** → **Pages** → **Connect to Git**.
+3. Choose the repo. Build settings:
+   - **Framework preset:** None
+   - **Build command:** *(leave empty)*
+   - **Build output directory:** `/`
+4. **Save and Deploy.** Every future `git push` triggers a new deploy automatically.
+
+### Custom domain (later)
+
+1. Cloudflare Pages → your project → **Custom domains** → **Set up a custom domain**.
+2. Add `solotec.dev` (or any domain you own — cheapest at Namecheap or Cloudflare Registrar).
+3. Cloudflare handles SSL and the DNS records automatically.
+
+## Local preview (optional)
+
+No build step. From this folder:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Open `http://localhost:8000`.
+Then open `http://localhost:8000`.
 
-## Design decisions
+## Design decisions worth knowing
 
-- **No sticky nav with backdrop-blur.** Nav sits at the top and stays there. This is a defining "AI-generated portfolio" pattern; removing it makes the page feel less templated.
-- **No scroll-reveal animations.** Content appears when it appears. This is another AI-generated tell.
-- **Gradient used once.** The teal→blue gradient shows up only in the "c" of the wordmark and one bottom strip in the OG image. That's it. Everything else is monochrome text on the dark background.
-- **Asymmetric case studies.** The three cases alternate sides (image left, image right, image left) instead of a symmetric grid.
-- **Real numbers.** The stats band uses actual project numbers (26 tables, 6 platforms, 1 App Store app) rather than generic "10+ years experience" filler.
-- **Personal voice.** Copy uses first person ("I built", "my day job") and specific projects by name, not corporate "we deliver" language.
+- **No sticky nav with backdrop-blur** — that pattern reads as AI-generated. Nav is standard, at the top.
+- **Colors:** the base is teal + blue (SoloTec brand). Purple, amber, and coral appear only as project-card accents, one per card, so the page has variety without becoming a rainbow.
+- **Animated hero banner** — floating code symbols (`{ }`, `< />`, `=>`, etc.) + glowing particles injected by JS. They loop slowly. `prefers-reduced-motion` disables all animation.
+- **Bottom nav (mobile only)** — Home / Projects / About / Contact / Menu. The Menu button opens a slide-up sheet with GitHub, LinkedIn, Email, and the language switch.
+- **Floating WhatsApp button** — always visible, pulses gently, links directly to `+20 111 150 9666`.
+- **Mockups vs. screenshots** — the SVGs in `assets/mockups/` are interim illustrations for pieces I don't have real screenshots of yet. When you drop real PNGs into `assets/screenshots/{project}/`, just update the `src` in the relevant `<img>` tag.
+- **Hexagon portrait** — your photo is clipped with a CSS `clip-path`, not baked into the image. Swap `assets/portrait.jpg` any time and the hexagon updates automatically. `object-position: 60% 30%` is set to focus on the face; adjust if a different photo needs different framing.
 
-## Regenerating icons
-
-If you change the brand colors or the logo shape, run `python build_icons.py` (in the parent dir where this project was built) to re-generate `favicon.png`, `apple-touch-icon.png`, and `og-image.png` in one shot.
-
-## Brand tokens
+## Brand tokens (copy for consistency)
 
 ```
-Teal:      #00B69B
-Blue:      #0EA5E9
-BG:        #0D1526
-Surface:   #17203A
-Text:      #E8EDF5
-Muted:     #8B95A8
-Dim:       #5A6685
+Teal:    #00B69B
+Blue:    #0EA5E9
+Purple:  #A78BFA
+Amber:   #F59E0B
+Coral:   #FB7185
+BG:      #0F1729
+Surface: #1A2340
+Text:    #E8EDF5
+Muted:   #94A3B8
 ```
 
-Gradient direction: **vertical** (`180deg`), teal at top, blue at bottom.
+## Editing the copy
 
-## Fonts
-
-- Space Grotesk (display, headings, big numbers)
-- Inter (body copy, UI)
-- JetBrains Mono (eyebrows, tech labels, small caps)
-- IBM Plex Sans Arabic (Arabic mode)
-
-Loaded from Google Fonts. No self-hosted files needed.
+- The English/Arabic text on every page is either directly in the HTML or in the `i18n` object at the top of `js/main.js`. Elements with `data-i18n="key"` swap based on which language is active.
+- For a quick text change: edit the HTML directly (English is the source), then find the matching Arabic key in `js/main.js` and update it too.
+- The three case-study bodies (Problem / What I built / Interesting bit) are in `projects.html` in plain HTML — no i18n on those blocks yet. If you need them bilingual, wrap the paragraphs in `<span data-i18n="...">` and add the Arabic to `js/main.js`.

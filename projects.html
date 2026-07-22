@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Kareem Rashad</title>
+  <meta name="description" content="Four featured projects by Kareem Rashad — a WhatsApp support platform, an HR system with Egyptian payroll, an iOS booking app, and a workforce operations portal.">
+  <meta name="theme-color" content="#0F1729">
+
+  <link rel="icon" type="image/svg+xml" href="assets/logo-mark.svg">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/icons/favicon.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <a href="index.html" class="nav-brand" aria-label="SoloTec home">
+      <img src="assets/logo-mark.svg" alt="" class="nav-brand-mark">
+      <span class="nav-brand-word">Solo<span class="grad-text">Tec</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link" data-i18n="nav_home">Home</a>
+      <a href="projects.html" class="nav-link active" data-i18n="nav_projects">Projects</a>
+      <a href="about.html" class="nav-link" data-i18n="nav_about">About</a>
+      <a href="contact.html" class="nav-link" data-i18n="nav_contact">Contact</a>
+      <button id="langToggle" class="lang-toggle" aria-label="Switch language">ع</button>
+    </div>
+  </nav>
+
+
+  <!-- Page hero -->
+  <header class="section" style="padding-top: 60px; padding-bottom: 20px;">
+    <div class="container">
+      <p class="eyebrow">FEATURED WORK</p>
+      <h1 style="font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 20px;">Four projects, one developer.</h1>
+      <p style="color: var(--muted); max-width: 720px; font-size: 1.05rem;">
+        These are the four I keep coming back to. Each one is a real internal tool used daily.
+        Live links are private, so this page is where the stories live.
+      </p>
+
+      <!-- Quick jump tabs -->
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; padding: 16px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow-x: auto;">
+        <a href="#whatsapp-platform" class="tech-tag" style="border-color: var(--teal); color: var(--teal); padding: 6px 14px; font-size: 12px;">01 · WhatsApp Platform</a>
+        <a href="#hris" class="tech-tag" style="border-color: var(--purple); color: var(--purple); padding: 6px 14px; font-size: 12px;">02 · HR &amp; Payroll</a>
+        <a href="#ios-app" class="tech-tag" style="border-color: var(--amber); color: var(--amber); padding: 6px 14px; font-size: 12px;">03 · iOS App</a>
+        <a href="#ops-portal" class="tech-tag" style="border-color: var(--coral); color: var(--coral); padding: 6px 14px; font-size: 12px;">04 · Ops Portal</a>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ═══ Project 1: WhatsApp platform ═══ -->
+  <section id="whatsapp-platform" class="section">
+    <div class="container">
+
+      <div class="project-hero">
+        <div class="project-hero-meta">
+          <span class="status-pill live">● In production</span>
+          <span>2025</span>
+          <span>·</span>
+          <span>Full-stack SaaS</span>
+        </div>
+        <h2 class="project-title">Support platform on WhatsApp</h2>
+        <p class="project-lede">
+          A shared inbox, smart conversation routing, agent permissions, campaigns, and five live reporting views — built to replace a paid third-party WhatsApp tool with something the team owns.
+        </p>
+
+        <div class="project-cover">
+          <img src="assets/screenshots/whatsapp/login.png" alt="Support platform login screen">
+        </div>
+      </div>
+
+      <div class="project-details">
+        <div class="details-main">
+          <h3>The problem</h3>
+          <p>The team was paying for a third-party WhatsApp tool with hard limits I kept hitting — agent count, campaign volume, reporting depth. Every workaround was another spreadsheet.</p>
+
+          <h3>What I built</h3>
+          <ul>
+            <li>Shared inbox with race-safe conversation routing to available agents</li>
+            <li>Agent permissions matrix — every capability flows through one Terms &amp; Roles table</li>
+            <li>Five live reporting views: SLA, agent performance, response time, backlog, campaigns</li>
+            <li>Campaign manager with database-driven message templates</li>
+            <li>Three-layer notifications: sound + toast + browser</li>
+          </ul>
+
+          <h3>The interesting bit</h3>
+          <p>The permission system is one matrix. Every button, every filter, every route checks the same source of truth. Adding a new role is one row, not a hunt through the codebase.</p>
+        </div>
+
+        <aside class="details-side">
+          <div class="side-block">
+            <div class="label">STACK</div>
+            <div class="value">Next.js · Supabase · WhatsApp Business API · Vercel</div>
+          </div>
+          <div class="side-block">
+            <div class="label">ROLE</div>
+            <div class="value">Solo — design, build, deploy, maintain</div>
+          </div>
+          <div class="side-block">
+            <div class="label">CONTEXT</div>
+            <div class="value">Internal tool at my day job</div>
+          </div>
+          <div class="side-block">
+            <div class="label">STATUS</div>
+            <div class="value">Live, used daily</div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Screenshots gallery (placeholders — replace when ready) -->
+      <div class="gallery">
+        <figure>
+          <img src="assets/screenshots/whatsapp/login.png" alt="Login screen">
+          <figcaption>Login screen</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/mockups/mockup-whatsapp.svg" alt="Inbox with routing">
+          <figcaption>Inbox with routing — screenshot coming soon</figcaption>
+        </figure>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══ Project 2: HRIS ═══ -->
+  <section id="hris" class="section" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div class="container">
+
+      <div class="project-hero">
+        <div class="project-hero-meta">
+          <span class="status-pill live">● In production</span>
+          <span>2024–2025</span>
+          <span>·</span>
+          <span>HR &amp; Payroll</span>
+        </div>
+        <h2 class="project-title" style="color: var(--purple);">HR system with Egyptian payroll</h2>
+        <p class="project-lede">
+          A full HR platform built for a client still on spreadsheets. Twenty-six tables, a payroll engine that understands Egyptian progressive tax and social insurance, plus a mobile app so people can check in from wherever they actually are.
+        </p>
+
+        <div class="project-cover" style="border-color: rgba(167, 139, 250, 0.3);">
+          <img src="assets/mockups/mockup-hris.svg" alt="HRIS dashboard preview">
+        </div>
+      </div>
+
+      <div class="project-details">
+        <div class="details-main">
+          <h3>The problem</h3>
+          <p>A client with 200+ employees was running everything on spreadsheets — attendance, leave, and payroll. Every month-end was a manual reconciliation nightmare, and Egyptian tax law made it worse.</p>
+
+          <h3>What I built</h3>
+          <ul>
+            <li>26-table Postgres schema covering employees, contracts, attendance, leave, payroll</li>
+            <li>Progressive-tax engine and social-insurance calculations that match Egyptian law, not the textbook version</li>
+            <li>GPS-based attendance in a mobile PWA — check in from the actual work site</li>
+            <li>Leave request workflow with approval chains</li>
+            <li>Full admin dashboard with month-close and payroll runs</li>
+          </ul>
+
+          <h3>The interesting bit</h3>
+          <p>The payroll engine was the hardest part — not the math, the edge cases. Prorated first months, mid-cycle raises, unpaid leave, insurance ceiling changes. The rules aren't in one document; I stitched them together from HR practice.</p>
+        </div>
+
+        <aside class="details-side">
+          <div class="side-block">
+            <div class="label">STACK</div>
+            <div class="value">Supabase · PWA · GPS attendance</div>
+          </div>
+          <div class="side-block">
+            <div class="label">ROLE</div>
+            <div class="value">Solo — schema, backend, mobile, admin</div>
+          </div>
+          <div class="side-block">
+            <div class="label">CONTEXT</div>
+            <div class="value">Client project alongside my day job</div>
+          </div>
+          <div class="side-block">
+            <div class="label">STATUS</div>
+            <div class="value">Live, running month-close every cycle</div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="gallery">
+        <figure>
+          <img src="assets/mockups/mockup-hris.svg" alt="Dashboard">
+          <figcaption>Dashboard — real screenshot coming soon</figcaption>
+        </figure>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══ Project 3: iOS app ═══ -->
+  <section id="ios-app" class="section">
+    <div class="container">
+
+      <div class="project-hero">
+        <div class="project-hero-meta">
+          <span class="status-pill live" style="background: rgba(245, 158, 11, 0.15); color: var(--amber);">● Live on App Store</span>
+          <span>2024–2026</span>
+          <span>·</span>
+          <span>iOS &amp; PWA</span>
+        </div>
+        <h2 class="project-title" style="color: var(--amber);">Studio booking iOS app</h2>
+        <p class="project-lede">
+          A yoga studio was running bookings on WhatsApp. I built them a booking app for iOS — from first line of code to App Store release, without owning a Mac. The whole toolchain runs in the browser and in cloud CI.
+        </p>
+
+        <div class="project-cover" style="border-color: rgba(245, 158, 11, 0.3);">
+          <img src="assets/screenshots/ios/enjy-login.png" alt="Align with Enjy iOS app">
+        </div>
+      </div>
+
+      <div class="project-details">
+        <div class="details-main">
+          <h3>The problem</h3>
+          <p>Every Sunday night the studio owner was retyping the class schedule into a WhatsApp broadcast. Bookings arrived by DM. Cancellations were remembered, not tracked. Payments were on a spreadsheet.</p>
+
+          <h3>What I built</h3>
+          <ul>
+            <li>Class schedule with drag-to-reorder and "Copy last week" so nobody retypes at midnight</li>
+            <li>Booking flow with class-credit balance, waitlists, and cancellation windows</li>
+            <li>Push notifications through APNs for class reminders and studio announcements</li>
+            <li>Native iOS shell over the PWA using Capacitor, built in the cloud via Codemagic</li>
+          </ul>
+
+          <h3>The interesting bit</h3>
+          <p>Shipping to the App Store without a Mac took time to get right — Codemagic runs the iOS build, code-signing happens on their machines, TestFlight submissions go through Fastlane. I write the code in the browser, push, and 20 minutes later there's a new build in TestFlight.</p>
+        </div>
+
+        <aside class="details-side">
+          <div class="side-block">
+            <div class="label">STACK</div>
+            <div class="value">Capacitor · Codemagic · Supabase · APNs</div>
+          </div>
+          <div class="side-block">
+            <div class="label">ROLE</div>
+            <div class="value">Solo — end to end</div>
+          </div>
+          <div class="side-block">
+            <div class="label">CONTEXT</div>
+            <div class="value">Client project — yoga studio</div>
+          </div>
+          <div class="side-block">
+            <div class="label">STATUS</div>
+            <div class="value">Live on the App Store</div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="gallery">
+        <figure>
+          <img src="assets/screenshots/ios/enjy-login.png" alt="Login screen">
+          <figcaption>Login screen</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/mockups/mockup-ios.svg" alt="Class schedule">
+          <figcaption>Class schedule — real screenshot coming soon</figcaption>
+        </figure>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══ Project 4: Operations portal ═══ -->
+  <section id="ops-portal" class="section" style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div class="container">
+
+      <div class="project-hero">
+        <div class="project-hero-meta">
+          <span class="status-pill live" style="background: rgba(251, 113, 133, 0.15); color: var(--coral);">● In production</span>
+          <span>2024–2025</span>
+          <span>·</span>
+          <span>Workforce &amp; operations</span>
+        </div>
+        <h2 class="project-title" style="color: var(--coral);">Operations &amp; workforce portal</h2>
+        <p class="project-lede">
+          Three interlocking apps for the team that runs an operations floor — an admin panel, an agent dashboard, and a campaign runner. Vanilla JS, Supabase, and a lot of realtime.
+        </p>
+
+        <div class="project-cover" style="border-color: rgba(251, 113, 133, 0.3);">
+          <img src="assets/screenshots/ops/admin-panel-login.png" alt="Admin panel">
+        </div>
+      </div>
+
+      <div class="project-details">
+        <div class="details-main">
+          <h3>The problem</h3>
+          <p>The operations team was juggling three different tools for scheduling, agent break tracking, and outbound campaigns. Data lived in disconnected places. Managers spent hours reconciling.</p>
+
+          <h3>What I built</h3>
+          <ul>
+            <li><strong>Admin panel:</strong> workforce scheduling, break compliance, KPI dashboards, real-time roster</li>
+            <li><strong>Agent portal:</strong> shift schedule, break requests, KPI view, notifications</li>
+            <li><strong>Campaign portal:</strong> outbound campaign runner with database-driven call scripts, duplicate handling, live agent notifications</li>
+            <li>Shared Supabase backend so all three apps read from the same tables</li>
+          </ul>
+
+          <h3>The interesting bit</h3>
+          <p>Kept it vanilla JS on purpose — no framework, no build step. The whole thing loads instantly, deploys as a static site, and I can debug it in the browser without a source map. Sometimes the boring stack is the right one.</p>
+        </div>
+
+        <aside class="details-side">
+          <div class="side-block">
+            <div class="label">STACK</div>
+            <div class="value">Vanilla JS · Supabase · Realtime</div>
+          </div>
+          <div class="side-block">
+            <div class="label">ROLE</div>
+            <div class="value">Solo — three apps, one shared backend</div>
+          </div>
+          <div class="side-block">
+            <div class="label">CONTEXT</div>
+            <div class="value">Internal tools at my day job</div>
+          </div>
+          <div class="side-block">
+            <div class="label">STATUS</div>
+            <div class="value">Live, used daily by 3 teams</div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="gallery">
+        <figure>
+          <img src="assets/screenshots/ops/admin-panel-login.png" alt="Admin panel login">
+          <figcaption>Admin panel · login</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screenshots/ops/agent-portal-login.png" alt="Agent portal login">
+          <figcaption>Agent portal · login</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/screenshots/ops/campaign-portal-login.png" alt="Campaign portal login">
+          <figcaption>Campaign portal · login</figcaption>
+        </figure>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+  <section class="section" style="text-align: center;">
+    <div class="container">
+      <h2 style="margin: 0 auto 16px;">Want to see what I can build for your team?</h2>
+      <p style="color: var(--muted); margin-bottom: 30px;">Fastest reply is WhatsApp — same day, in Arabic or English.</p>
+      <a href="https://wa.me/201111509666" class="btn btn-primary" target="_blank" rel="noopener">WhatsApp me</a>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <img src="assets/logo-wordmark.svg" alt="SoloTec" class="footer-wordmark">
+      <span class="footer-note" data-i18n="footer_note">Built by Kareem, in the browser, from Cairo.</span>
+    </div>
+  </footer>
+
+
+  <!-- Mobile bottom nav -->
+  <nav class="bottom-nav" aria-label="Mobile navigation">
+    <ul class="bnav-list">
+      <li><a href="index.html" class="bnav-item">
+        <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m3 12 2-2m0 0 7-7 7 7M5 10v10a1 1 0 0 0 1 1h3m10-11 2 2m-2-2v10a1 1 0 0 1-1 1h-3m-6 0a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1m-6 0h6"/></svg>
+        <span data-i18n="nav_home">Home</span>
+      </a></li>
+      <li><a href="projects.html" class="bnav-item active">
+        <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75"/></svg>
+        <span data-i18n="nav_projects">Projects</span>
+      </a></li>
+      <li><a href="about.html" class="bnav-item">
+        <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg>
+        <span data-i18n="nav_about">About</span>
+      </a></li>
+      <li><a href="contact.html" class="bnav-item">
+        <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+        <span data-i18n="nav_contact">Contact</span>
+      </a></li>
+      <li><button id="sheetTrigger" class="bnav-item" aria-label="Menu">
+        <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+        <span data-i18n="nav_menu">Menu</span>
+      </button></li>
+    </ul>
+  </nav>
+
+  <div class="sheet-backdrop" id="sheetBackdrop"></div>
+  <div class="sheet" id="sheet" role="dialog">
+    <div class="sheet-handle"></div>
+    <h3 class="sheet-title" data-i18n="menu_title">More</h3>
+    <button class="sheet-item" id="sheetLangBtn" style="width:100%; background:transparent; border:none; text-align:start; cursor:pointer;">
+      <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371"/></svg>
+      <span data-i18n="menu_lang">Language: العربية</span>
+    </button>
+    <a href="https://github.com/soloever2-maker" target="_blank" rel="noopener" class="sheet-item">
+      <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25"/></svg>
+      <span>GitHub</span>
+    </a>
+    <a href="https://www.linkedin.com/in/kareem-rashad-93b258a2/" target="_blank" rel="noopener" class="sheet-item">
+      <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244"/></svg>
+      <span>LinkedIn</span>
+    </a>
+    <a href="mailto:Soloever2@gmail.com" class="sheet-item">
+      <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75"/></svg>
+      <span>Email</span>
+    </a>
+  </div>
+
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/201111509666" target="_blank" rel="noopener" class="floating-wa" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+  </a>
+
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
